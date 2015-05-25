@@ -1,12 +1,5 @@
 [
   {
-    "CardNo":"CardNo",
-    "Password":"Password",
-    "Name":"Name",
-    "Address":"Address",
-    "Phone":"Phone"
-  },
-  {
     "CardNo":"N12345001",
     "Password":"xxxx",
     "Name":"陳冠希",

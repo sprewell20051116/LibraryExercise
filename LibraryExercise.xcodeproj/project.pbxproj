@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		100815181B12F28500FA2D7E /* UserList.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 100815171B12F28500FA2D7E /* UserList.JSON */; };
+		100815181B12F28500FA2D7E /* UserList.json in Resources */ = {isa = PBXBuildFile; fileRef = 100815171B12F28500FA2D7E /* UserList.json */; };
 		1015A49A1B12D8D10020FFAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A4991B12D8D10020FFAF /* main.m */; };
 		1015A49D1B12D8D10020FFAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A49C1B12D8D10020FFAF /* AppDelegate.m */; };
 		1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1015A49E1B12D8D10020FFAF /* LibraryExercise.xcdatamodeld */; };
@@ -16,6 +16,15 @@
 		1015A4A81B12D8D10020FFAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1015A4A71B12D8D10020FFAF /* Images.xcassets */; };
 		1015A4AB1B12D8D10020FFAF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1015A4A91B12D8D10020FFAF /* LaunchScreen.xib */; };
 		1015A4B71B12D8D10020FFAF /* LibraryExerciseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A4B61B12D8D10020FFAF /* LibraryExerciseTests.m */; };
+		10240AE11B12F75200B937D7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AE01B12F75200B937D7 /* RegisterViewController.m */; };
+		10240AE41B12F75C00B937D7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AE31B12F75C00B937D7 /* LoginViewController.m */; };
+		10240AE71B12F76500B937D7 /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AE61B12F76500B937D7 /* AdminViewController.m */; };
+		10240AEA1B12F81500B937D7 /* JSONFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AE91B12F81500B937D7 /* JSONFileManager.m */; };
+		10240AF01B12FA3100B937D7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AEF1B12FA3100B937D7 /* User.m */; };
+		10240AF31B12FA6000B937D7 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AF21B12FA6000B937D7 /* Book.m */; };
+		10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E181B13139000E7E89D /* CoreDataModel.m */; };
+		10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1B1B132F1E00E7E89D /* bookList.json */; };
+		10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1D1B13389000E7E89D /* bookLoans.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		100815171B12F28500FA2D7E /* UserList.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserList.JSON; sourceTree = "<group>"; };
+		100815171B12F28500FA2D7E /* UserList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserList.json; sourceTree = "<group>"; };
 		1015A4941B12D8D10020FFAF /* LibraryExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1015A4981B12D8D10020FFAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1015A4991B12D8D10020FFAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,6 +53,22 @@
 		1015A4B01B12D8D10020FFAF /* LibraryExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibraryExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1015A4B51B12D8D10020FFAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1015A4B61B12D8D10020FFAF /* LibraryExerciseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LibraryExerciseTests.m; sourceTree = "<group>"; };
+		10240ADF1B12F75200B937D7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		10240AE01B12F75200B937D7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		10240AE21B12F75C00B937D7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		10240AE31B12F75C00B937D7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		10240AE51B12F76500B937D7 /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
+		10240AE61B12F76500B937D7 /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
+		10240AE81B12F81500B937D7 /* JSONFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONFileManager.h; sourceTree = "<group>"; };
+		10240AE91B12F81500B937D7 /* JSONFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONFileManager.m; sourceTree = "<group>"; };
+		10240AEE1B12FA3100B937D7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		10240AEF1B12FA3100B937D7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		10240AF11B12FA6000B937D7 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		10240AF21B12FA6000B937D7 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		10AC4E171B13139000E7E89D /* CoreDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataModel.h; sourceTree = "<group>"; };
+		10AC4E181B13139000E7E89D /* CoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataModel.m; sourceTree = "<group>"; };
+		10AC4E1B1B132F1E00E7E89D /* bookList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookList.json; sourceTree = "<group>"; };
+		10AC4E1D1B13389000E7E89D /* bookLoans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookLoans.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +110,11 @@
 		1015A4961B12D8D10020FFAF /* LibraryExercise */ = {
 			isa = PBXGroup;
 			children = (
-				100815171B12F28500FA2D7E /* UserList.JSON */,
+				10AC4E1A1B13157900E7E89D /* Resource */,
+				10240AE81B12F81500B937D7 /* JSONFileManager.h */,
+				10240AE91B12F81500B937D7 /* JSONFileManager.m */,
+				10AC4E171B13139000E7E89D /* CoreDataModel.h */,
+				10AC4E181B13139000E7E89D /* CoreDataModel.m */,
 				1015A49B1B12D8D10020FFAF /* AppDelegate.h */,
 				1015A49C1B12D8D10020FFAF /* AppDelegate.m */,
 				1015A4A11B12D8D10020FFAF /* ViewController.h */,
@@ -95,6 +124,16 @@
 				1015A4A91B12D8D10020FFAF /* LaunchScreen.xib */,
 				1015A49E1B12D8D10020FFAF /* LibraryExercise.xcdatamodeld */,
 				1015A4971B12D8D10020FFAF /* Supporting Files */,
+				10240ADF1B12F75200B937D7 /* RegisterViewController.h */,
+				10240AE01B12F75200B937D7 /* RegisterViewController.m */,
+				10240AE21B12F75C00B937D7 /* LoginViewController.h */,
+				10240AE31B12F75C00B937D7 /* LoginViewController.m */,
+				10240AE51B12F76500B937D7 /* AdminViewController.h */,
+				10240AE61B12F76500B937D7 /* AdminViewController.m */,
+				10240AEE1B12FA3100B937D7 /* User.h */,
+				10240AEF1B12FA3100B937D7 /* User.m */,
+				10240AF11B12FA6000B937D7 /* Book.h */,
+				10240AF21B12FA6000B937D7 /* Book.m */,
 			);
 			path = LibraryExercise;
 			sourceTree = "<group>";
@@ -123,6 +162,16 @@
 				1015A4B51B12D8D10020FFAF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10AC4E1A1B13157900E7E89D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				10AC4E1D1B13389000E7E89D /* bookLoans.json */,
+				10AC4E1B1B132F1E00E7E89D /* bookList.json */,
+				100815171B12F28500FA2D7E /* UserList.json */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +254,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				100815181B12F28500FA2D7E /* UserList.JSON in Resources */,
+				100815181B12F28500FA2D7E /* UserList.json in Resources */,
 				1015A4A61B12D8D10020FFAF /* Main.storyboard in Resources */,
+				10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */,
+				10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */,
 				1015A4AB1B12D8D10020FFAF /* LaunchScreen.xib in Resources */,
 				1015A4A81B12D8D10020FFAF /* Images.xcassets in Resources */,
 			);
@@ -226,9 +277,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10240AF01B12FA3100B937D7 /* User.m in Sources */,
+				10240AE11B12F75200B937D7 /* RegisterViewController.m in Sources */,
+				10240AEA1B12F81500B937D7 /* JSONFileManager.m in Sources */,
+				10240AF31B12FA6000B937D7 /* Book.m in Sources */,
+				10240AE71B12F76500B937D7 /* AdminViewController.m in Sources */,
 				1015A49D1B12D8D10020FFAF /* AppDelegate.m in Sources */,
+				10240AE41B12F75C00B937D7 /* LoginViewController.m in Sources */,
 				1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */,
 				1015A4A31B12D8D10020FFAF /* ViewController.m in Sources */,
+				10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */,
 				1015A49A1B12D8D10020FFAF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

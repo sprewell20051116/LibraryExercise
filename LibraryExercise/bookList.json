@@ -1,0 +1,302 @@
+[
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "Title":"Fundamentals of Database Systems, 4th ed.",
+    "PublisherName":"Addison Wesley"
+  },
+  {
+    "BookId":"ISBN 0-321-41502-X",
+    "Title":"Fundamentals of Database Systems, 5th ed.",
+    "PublisherName":"Addison Wesley"
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "Title":"Fundamentals of Database Systems, 6th ed.",
+    "PublisherName":"Addison Wesley"
+  },
+  {
+    "BookId":"ISBN 0-07-112268-0",
+    "Title":"Database System Concepts, 4th ed.",
+    "PublisherName":"McGraw Hill"
+  },
+  {
+    "BookId":"ISBN 0-13-0885212-0",
+    "Title":"Database Processing - Fundamentals, Design & Implementation, 7th ed.",
+    "PublisherName":"Prentice Hall"
+  },
+  {
+    "BookId":"ISBN 0-321-62335-5",
+    "Title":"Linear Algebra and Its Applications, 4th ed.",
+    "PublisherName":"Pearson"
+  },
+  {
+    "BookId":"ISBN 0-13-512867-6",
+    "Title":"Linear Algebra with Applications, 8th ed.",
+    "PublisherName":"Pearson"
+  },
+  {
+    "BookId":"ISBN 0-13-03221-0",
+    "Title":"Computer Organization and Architecture. 6th ed.",
+    "PublisherName":"Prentice Hall"
+  },
+  {
+    "BookId":"ISBN 0-13-201750-4",
+    "Title":"Computer Organization and Architecture. 7th ed.",
+    "PublisherName":"Prentice Hall"
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "Title":"Computer Organization and Architecture. 8th ed.",
+    "PublisherName":"Prentice Hall"
+  },
+  {
+    "BookId":"ISBN 981-4024-58-9",
+    "Title":"Structured Computer Organization, 4th ed.",
+    "PublisherName":"Prentice Hall"
+  },
+  {
+    "BookId":"ISBN 1-55860-491-X",
+    "Title":"Computer Organization & Design, 2nd ed.",
+    "PublisherName":"Morgan Kaufmann"
+  },
+  {
+    "BookId":"ISBN 981-2592-17-2",
+    "Title":"Computer Organization & Design, 3rd ed.",
+    "PublisherName":"Morgan Kaufmann"
+  },
+  {
+    "BookId":"ISBN 0-321-31252-X",
+    "Title":"Interactive Computer Graphics: A Top-Down Approach Using OpenGL",
+    "PublisherName":"Addison Wesley"
+  },
+  {
+    "BookId":"ISBN 0-89006-206-4",
+    "Title":"Priciples of Electromagnetic Compatibility ",
+    "PublisherName":"Keiser"
+  },
+  {
+    "BookId":"ISBN 0-471-85068-3",
+    "Title":"Noise Reduction Techniques in Electronic Systems",
+    "PublisherName":"Wiley Interscience"
+  },
+  {
+    "BookId":"ISBN 0-7803-1131-0",
+    "Title":"Printed Circuit Board Design Techniques for EMC Compliance",
+    "PublisherName":"IEEE Press"
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "Title":"Secret if RF Circuit Design",
+    "PublisherName":"McGraw Hill"
+  },
+  {
+    "BookId":"ISBN 0-87942-274-2",
+    "Title":"Subscriber Loop Signaling and Transmission Handbook: Analog",
+    "PublisherName":"IEEE Press"
+  },
+  {
+    "BookId":"ISBN 1-55860-369-7",
+    "Title":"Digital Compression for Multimedia",
+    "PublisherName":"Morgan Kaufmann"
+  },
+  {
+    "BookId":"ISBN 1-4020-7357-7",
+    "Title":"Introduction to Digital Audio Coding and Standards",
+    "PublisherName":"Kluwer Academic Publishers"
+  },
+  {
+    "BookId":"ISBM 0-471-85894-3",
+    "Title":"Digital Audio Broadcasting: Priciples and Applications",
+    "PublisherName":"John Wiley & Sons"
+  },
+  {
+    "BookId":"ISBM 0-07-137590-2",
+    "Title":"Data Broadcasting - Understanding the ATSC Data Broadcast Standard",
+    "PublisherName":"McGraw Hill"
+  },
+  {
+    "BookId":"ISBN 0-201-64859-8",
+    "Title":"Computer System Architecture - A Network Approach",
+    "PublisherName":"Addison-Wesley"
+  },
+  {
+    "BookId":"ISBN 0-672-32157-2",
+    "Title":"OFDN Wireless LANs: A Theoretical and Practical Guide",
+    "PublisherName":"SAMS"
+  },
+  {
+    "BookId":"ISBN 0-471-93976-5",
+    "Title":"Multirate Digital Signal Processing",
+    "PublisherName":"John Wiley & Sons"
+  },
+  {
+    "BookId":"ISBN 0-8053-1684-1",
+    "Title":"A Digital Signal Processing Primer",
+    "PublisherName":"Addison-Wesley"
+  },
+  {
+    "BookId":"ISBN 1-55860-343-3",
+    "Title":"Parallel Computer Architecture",
+    "PublisherName":"Morgan Kaufmann"
+  },
+  {
+    "BookId":"ISBN 0-201-61599-1",
+    "Title":"Authentication - From Passwords to Public Keys",
+    "PublisherName":"Addison-Wesley"
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "Title":"Audio Signal Processing and Coding ",
+    "PublisherName":"Wiley Interscience"
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "Title":"Multimedia Database Systems ",
+    "PublisherName":"Morgan Kaufmann"
+  },
+  {
+    "BookId":"ISBN 978-986-6996-72-6",
+    "Title":"漢代風雲人物",
+    "PublisherName":"馥林文化"
+  },
+  {
+    "BookId":"ISBN 978-957-08-3281-5",
+    "Title":"漢武帝 - 王立群讀「史記」",
+    "PublisherName":"聯經"
+  },
+  {
+    "BookId":"ISBN 978-986-6137-06-8",
+    "Title":"曹操秘史 第一部 ",
+    "PublisherName":"人類智庫"
+  },
+  {
+    "BookId":"ISBN 978-986-6137-08-2",
+    "Title":"曹操秘史 第二部",
+    "PublisherName":"人類智庫"
+  },
+  {
+    "BookId":"ISBN 978-986-6137-09-9",
+    "Title":"曹操秘史 第三部",
+    "PublisherName":"人類智庫"
+  },
+  {
+    "BookId":"ISBN 978-957-32-6244-2",
+    "Title":"領導決斷學",
+    "PublisherName":"遠流"
+  },
+  {
+    "BookId":"ISBN 978-986-7881-86-1",
+    "Title":"圖解羅馬帝國 ",
+    "PublisherName":"易博士"
+  },
+  {
+    "BookId":"ISBN 962-8885-56-1",
+    "Title":"復活的軍團 - 秦軍秘史",
+    "PublisherName":"中華書局"
+  },
+  {
+    "BookId":"ISBN 978-986-173-524-5",
+    "Title":"秦始皇 上部",
+    "PublisherName":"麥田出版"
+  },
+  {
+    "BookId":"ISBN 978-986-173-525-2",
+    "Title":"秦始皇 下部",
+    "PublisherName":"麥田出版"
+  },
+  {
+    "BookId":"ISBN 978-957-32-6637-2",
+    "Title":"長城往事 ",
+    "PublisherName":"遠流"
+  },
+  {
+    "BookId":"ISBN 978-986-120-576-2",
+    "Title":"劉備不是傳說",
+    "PublisherName":"麥田出版"
+  },
+  {
+    "BookId":"ISBN 978-986-7103-09-2",
+    "Title":"孫子兵法 ",
+    "PublisherName":"漢宇國際"
+  },
+  {
+    "BookId":"ISBN 978-957-455-827-4",
+    "Title":"孫子兵法",
+    "PublisherName":"好讀出版"
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "Title":"消失的神秘王朝",
+    "PublisherName":"華滋出版"
+  },
+  {
+    "BookId":"ISBN 978-986-6723-44-5",
+    "Title":"1683維也納",
+    "PublisherName":"左岸歷史"
+  },
+  {
+    "BookId":"ISBN 978-986-6118-24-1",
+    "Title":"劉邦 大風歌 上",
+    "PublisherName":"本事文化"
+  },
+  {
+    "BookId":"ISBN 978-986-6118-24-2",
+    "Title":"劉邦 大風歌 下     ",
+    "PublisherName":"本事文化"
+  },
+  {
+    "BookId":"ISBN 978-986-241-126-1",
+    "Title":"雲端戰略",
+    "PublisherName":"天下"
+  },
+  {
+    "BookId":"ISBN 978-986-417-774-5",
+    "Title":"長尾理論 ",
+    "PublisherName":"天下"
+  },
+  {
+    "BookId":"ISBN 978-986-417-535-1",
+    "Title":"藍海策略",
+    "PublisherName":"天下"
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "Title":"大蕭條 ",
+    "PublisherName":"商周出版"
+  },
+  {
+    "BookId":"ISBN 978-957-32-6981-6",
+    "Title":"據實側寫蕭萬長 ",
+    "PublisherName":"遠流"
+  },
+  {
+    "BookId":"ISBN 978-986-241-490-3",
+    "Title":"微笑的力量 - 蕭萬長公職之路五十年 ",
+    "PublisherName":"天下"
+  },
+  {
+    "BookId":"ISBN 978-986-216-402-0",
+    "Title":"台灣，請聽我說",
+    "PublisherName":"遠見天下文化"
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "Title":"萬物簡史 I ",
+    "PublisherName":"遠見天下文化"
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "Title":"萬物簡史 II",
+    "PublisherName":"遠見天下文化"
+  },
+  {
+    "BookId":"ISBN 978-986-417-777-6",
+    "Title":"萬物簡史 III",
+    "PublisherName":"遠見天下文化"
+  },
+  {
+    "BookId":"ISBN 978-986-417-788-3",
+    "Title":"萬物簡史 IV",
+    "PublisherName":"遠見天下文化"
+  }
+]

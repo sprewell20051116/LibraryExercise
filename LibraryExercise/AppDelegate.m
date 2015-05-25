@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "JSONFileManager.h"
+#import "User.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    //NSLog(@"count = %d", [[CoreData FetchBookObjInCoreData] count]);
+    NSLog(@"date = %@", [[[CoreData FetchBookObjInCoreData] firstObject] valueForKey:BOOK_DATA_KEY_DUE_DATE]);
+    //[self PutThingsIntoCoreData];
+    
     return YES;
 }
 
@@ -43,6 +49,53 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+#pragma mark - Process data
+-(void) PutUserListInCoreData
+{
+    
+     CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+
+     NSDictionary *UserListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"UserList"];
+     User *UserObj = [[User alloc] init];
+     //NSLog(@"Dic = %@", UserListDic);
+     //NSLog(@"Dic = %d", [UserListDic count]);
+     for (NSDictionary *UserDic in UserListDic) {
+     NSLog(@"User Name = %@", [UserDic valueForKey:@"Name"]);
+     UserObj.UserName = [UserDic valueForKey:@"Name"];
+     UserObj.Password = [UserDic valueForKey:@"Password"];
+     UserObj.Phone = [UserDic valueForKey:@"Phone"];
+     UserObj.Address = [UserDic valueForKey:@"Address"];
+     UserObj.CardId = [UserDic valueForKey:@"CardNo"];
+     [CoreData SaveIntoCoreDataWithObj:UserObj];
+     }
+}
+
+-(void) PutBookListInCoreData
+{
+    
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    
+    NSDictionary *BookListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"bookList"];
+    Book *BookObj = [[Book alloc] init];
+    //NSLog(@"Dic = %@", BookListDic);
+    //NSLog(@"Dic = %d", [UserListDic count]);
+    for (NSDictionary *BookDic in BookListDic) {
+        NSLog(@"Book Title = %@", [BookDic valueForKey:@"Title"]);
+        BookObj.Title = [BookDic valueForKey:@"Title"];
+        BookObj.Id = [BookDic valueForKey:@"BookId"];
+        BookObj.Publisher = [BookDic valueForKey:@"PublisherName"];
+        
+        [CoreData SaveBookIntoCoreDataWithObj:BookObj];
+    }
+}
+
+
+-(void) PutThingsIntoCoreData
+{
+    [self PutUserListInCoreData];
+    [self PutBookListInCoreData];
+}
+
 
 #pragma mark - Core Data stack
 
