@@ -68,10 +68,10 @@
     [NewObj setValue:CoreDataObj.Author forKey:BOOK_DATA_KEY_AUTHOR];
     [NewObj setValue:CoreDataObj.Publisher forKey:BOOK_DATA_KEY_PUBLISHER];
     [NewObj setValue:CoreDataObj.Branch forKey:BOOK_DATA_KEY_BRANCH];
-    [NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
-    [NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
-    [NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
-    [NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
+    //[NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
+    //[NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
+    //[NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
+    //[NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
 
     
     NSError *error = nil;
@@ -96,6 +96,42 @@
     return YES;
 
 }
+
+
+#pragma mark - Save Loan record
+-(BOOL) SaveLoanRecordIntoCoreDataWithLoanRecord : (NSDictionary*) LoanRecord
+{
+    
+    NSString *CoreDataEntityName = CORE_DATA_LOANRECORD_ENTITY;
+    NSManagedObject *NewObj = [NSEntityDescription insertNewObjectForEntityForName:CoreDataEntityName inManagedObjectContext:_context];
+    
+    if (LoanRecord == nil) {
+        return NO;
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    //    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    
+    
+    NSDate *OutDate = [formatter dateFromString:[LoanRecord valueForKey:@"DateOut"]];
+    NSDate *DueDate = [formatter dateFromString:[LoanRecord valueForKey:@"DueDate"]];
+
+    [NewObj setValue:[LoanRecord valueForKey:@"CardNo"] forKey:@"userID"];
+    [NewObj setValue:[LoanRecord valueForKey:@"BookId"] forKey:@"bookId"];
+    [NewObj setValue:[LoanRecord valueForKey:@"BranchId"] forKey:@"branch"];
+    [NewObj setValue:DueDate forKey:@"dueDate"];
+    [NewObj setValue:OutDate forKey:@"outDate"];
+    
+    
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
 
 
 #pragma mark - Fetch User Object
@@ -128,6 +164,22 @@
 }
 
 
+#pragma mark - Fetch Book Object
+-(NSMutableArray*) FetchLoanRecord
+{
+    NSMutableArray *CoreDataArray = [[NSMutableArray alloc] init];
+    NSString *CoreDataEntityName;
+    CoreDataEntityName = CORE_DATA_LOANRECORD_ENTITY;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:CoreDataEntityName];
+    CoreDataArray = [[_context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    return CoreDataArray;
+    
+}
+
+
+
 #pragma mark - Delete Book Object
 - (BOOL)deleteBookWithBookObj:(NSManagedObject*)CoreDataObj
 {
@@ -146,7 +198,7 @@
 
 
 
-#pragma mark - Delete Book Object
+#pragma mark - Search Book Object
 -(NSArray*) CoreDataSearchWithBookID : (NSString *) BookID
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -180,6 +232,89 @@
     
 }
 
+
+#pragma mark - Search branch
+-(NSArray*) CoreDataSearchinBranchWithString : (NSString *) SearchString
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_BRANCH ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"branch = %@", SearchString];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+- (BOOL) LoanBookWithIDStr : (NSString*) BookID
+                  inBranch : (NSString*) BranchID
+               byStartDate : (NSDate*) OutDate
+                andDueDate : (NSDate*) DueDate
+                 forUserID : (NSString*) UserID
+
+{
+    // Find available Book in sertain branch
+    //NSMutableArray *BookArray = [[NSMutableArray alloc] init];
+    
+    NSArray *SearchArray = [self CoreDataSearchWithBookID:BookID];
+    for (NSUInteger index = 0; index < [SearchArray count]; index++) {
+        if ([[[SearchArray objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH] isEqualToString:BranchID]) {
+            if ([[[SearchArray objectAtIndex:index] valueForKey:BOOK_DATA_KEY_IN_STOCK] boolValue]) {
+                
+                
+                // found a Book in stock
+                // Set Borrower
+                NSManagedObject *LoanBookObj = [SearchArray objectAtIndex:index];
+                [LoanBookObj setValue:UserID forKey:BOOK_DATA_KEY_BORROWER];
+                [LoanBookObj setValue:[NSNumber numberWithBool:NO] forKey:BOOK_DATA_KEY_IN_STOCK];
+                [LoanBookObj setValue:OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
+                [LoanBookObj setValue:DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
+                
+                NSError *error = nil;
+                if (![_context save:&error]) {
+                    NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+                    return NO;
+                }
+                
+                return YES;
+
+            }
+        }
+    }
+    NSLog(@"NOOOOOOO");
+    
+    return NO;
+}
+
+-(void) deleteDefaultObj
+{
+    NSArray *resultArray = [self CoreDataSearchinBranchWithString:DEFAULT_STR];
+    for (NSManagedObject *Obj in resultArray) {
+        [self deleteBookWithBookObj:Obj];
+    }
+}
 
 /*
  Sample : Save Obj

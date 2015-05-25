@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "JSONFileManager.h"
 #import "User.h"
-@interface AppDelegate ()
+@interface AppDelegate () 
 
 @end
 
@@ -17,22 +17,29 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    _CoreData = [[CoreDataModel alloc] init];
+
     // Override point for customization after application launch.
-    /*
-    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
-    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
-    NSUInteger Count = [SeawrchResult count];
-    NSLog(@"Count = %d", Count);
     
-    for (NSUInteger index = 0; index < Count; index++) {
-        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
-    }
-    */
-    //NSLog(@"count = %d", [[CoreData FetchBookObjInCoreData] count]);
-    //NSLog(@"date = %@", [[[CoreData FetchBookObjInCoreData] firstObject] valueForKey:BOOK_DATA_KEY_DUE_DATE]);
+    [_CoreData deleteDefaultObj];
+//    
+//    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+//    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
+//    NSUInteger Count = [SeawrchResult count];
+//    NSLog(@"Count = %d", Count);
+//    
+//    for (NSUInteger index = 0; index < Count; index++) {
+//        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
+//    }
+//
+//    NSLog(@"Count %d", [[_CoreData FetchLoanRecord] count]);
+//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
+//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
+//    
     //[self PutThingsIntoCoreData];
-    
     //[self SetupBookCopies];
+    //[self ProcessBookLoanList];
     return YES;
 }
 
@@ -63,27 +70,25 @@
 -(void) PutUserListInCoreData
 {
     
-     CoreDataModel *CoreData = [[CoreDataModel alloc] init];
 
      NSDictionary *UserListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"UserList"];
      User *UserObj = [[User alloc] init];
      //NSLog(@"Dic = %@", UserListDic);
      //NSLog(@"Dic = %d", [UserListDic count]);
      for (NSDictionary *UserDic in UserListDic) {
-     NSLog(@"User Name = %@", [UserDic valueForKey:@"Name"]);
-     UserObj.UserName = [UserDic valueForKey:@"Name"];
-     UserObj.Password = [UserDic valueForKey:@"Password"];
-     UserObj.Phone = [UserDic valueForKey:@"Phone"];
-     UserObj.Address = [UserDic valueForKey:@"Address"];
-     UserObj.CardId = [UserDic valueForKey:@"CardNo"];
-     [CoreData SaveIntoCoreDataWithObj:UserObj];
+         NSLog(@"User Name = %@", [UserDic valueForKey:@"Name"]);
+         UserObj.UserName = [UserDic valueForKey:@"Name"];
+         UserObj.Password = [UserDic valueForKey:@"Password"];
+         UserObj.Phone = [UserDic valueForKey:@"Phone"];
+         UserObj.Address = [UserDic valueForKey:@"Address"];
+         UserObj.CardId = [UserDic valueForKey:@"CardNo"];
+         [_CoreData SaveIntoCoreDataWithObj:UserObj];
      }
 }
 
 -(void) PutBookListInCoreData
 {
     
-    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
     
     NSDictionary *BookListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"bookList"];
     Book *BookObj = [[Book alloc] init];
@@ -95,27 +100,25 @@
         BookObj.Id = [BookDic valueForKey:@"BookId"];
         BookObj.Publisher = [BookDic valueForKey:@"PublisherName"];
         
-        [CoreData SaveBookIntoCoreDataWithObj:BookObj];
+        [_CoreData SaveBookIntoCoreDataWithObj:BookObj];
     }
 }
 
 -(void) ProcessAuthorList
 {
-    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
     
     NSDictionary *AuthorListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"AuthorList"];
     NSLog(@"Dic = %@", AuthorListDic);
     
     for (NSDictionary *BookCopy in AuthorListDic) {
         NSLog(@"Bookid = %@", [BookCopy valueForKey:@"BookID"]);
-        [CoreData UpdateAuthor:[BookCopy valueForKey:@"AuthorName"] WithBookID:[BookCopy valueForKey:@"BookID"]];
+        [_CoreData UpdateAuthor:[BookCopy valueForKey:@"AuthorName"] WithBookID:[BookCopy valueForKey:@"BookID"]];
     }
 }
 
 
 -(void) SetupBookCopies
 {
-    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
 
     NSDictionary *BookCopyDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"bookCopies"];
     // 1. Find the isbn
@@ -128,7 +131,7 @@
         NSLog(@"BookBranch  = %@", [BookCopy valueForKey:@"BranchId"]);
         NSLog(@"BookCopies  = %@", [BookCopy valueForKey:@"No-Of_Copies"]);
 
-        NSManagedObject *generalBookObj = [[CoreData CoreDataSearchWithBookID:[BookCopy valueForKey:@"BookId"]] firstObject];
+        NSManagedObject *generalBookObj = [[_CoreData CoreDataSearchWithBookID:[BookCopy valueForKey:@"BookId"]] firstObject];
         
         NSInteger Loops = [[BookCopy valueForKey:@"No-Of_Copies"] integerValue];
         for (NSInteger index = 0; index < Loops; index++) {
@@ -143,21 +146,64 @@
             
             NSLog(@"Looping index = %d", index);
             
-            [CoreData SaveBookIntoCoreDataWithObj:BookObj];
+            [_CoreData SaveBookIntoCoreDataWithObj:BookObj];
         }
         
-        //[CoreData deleteBookWithBookObj:generalBookObj];
+        //[_CoreData deleteBookWithBookObj:generalBookObj];
         
     }
      
 }
 
+-(void) ProcessBookLoanList
+{
+    NSDictionary *LoanDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"bookLoans"];
+    NSLog(@"Dic = %@", LoanDic);
+    for (NSDictionary *Loans in LoanDic) {
+        [_CoreData SaveLoanRecordIntoCoreDataWithLoanRecord:Loans];
+    }
+    
+    /*
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+//    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    
+    for (NSDictionary *Loans in LoanDic) {
+        
+        
+        NSLog(@"Bookid = %@", [Loans valueForKey:@"BookId"]);
+        NSLog(@"OutDate = %@", [Loans valueForKey:@"DateOut"]);
+        NSLog(@"DueDate = %@", [Loans valueForKey:@"DueDate"]);
+        
+        NSDate *OutDate = [formatter dateFromString:[Loans valueForKey:@"DateOut"]];
+        NSDate *DueDate = [formatter dateFromString:[Loans valueForKey:@"DueDate"]];
+        [_CoreData LoanBookWithIDStr:[Loans valueForKey:@"BookId"]
+                            inBranch:[Loans valueForKey:@"BranchId"]
+                         byStartDate:OutDate
+                          andDueDate:DueDate
+                           forUserID:[Loans valueForKey:@"CardNo"]];
+        
+        
+        //[_CoreData UpdateAuthor:[BookCopy valueForKey:@"AuthorName"] WithBookID:[BookCopy valueForKey:@"BookID"]];
+    }
+     
+     */
+}
+
 -(void) PutThingsIntoCoreData
 {
-//    [self PutUserListInCoreData];
-//    [self PutBookListInCoreData];
-//    [self ProcessAuthorList];
-    //[self SetupBookCopies];
+    
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self PutUserListInCoreData];
+        [self PutBookListInCoreData];
+        [self ProcessAuthorList];
+        
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [self SetupBookCopies];
+            [self ProcessBookLoanList];
+        });
+    });
+    
 }
 
 

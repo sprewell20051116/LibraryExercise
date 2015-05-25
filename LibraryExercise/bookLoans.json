@@ -334,19 +334,5 @@
     "CardNo":"N12345003",
     "DateOut":"2014/5/28",
     "DueDate":"2014/6/25"
-  },
-  {
-    "BookId":"",
-    "BranchId":"",
-    "CardNo":"",
-    "DateOut":"",
-    "DueDate":""
-  },
-  {
-    "BookId":"",
-    "BranchId":"",
-    "CardNo":"",
-    "DateOut":"",
-    "DueDate":""
   }
 ]
