@@ -11,7 +11,6 @@
 		1015A49A1B12D8D10020FFAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A4991B12D8D10020FFAF /* main.m */; };
 		1015A49D1B12D8D10020FFAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A49C1B12D8D10020FFAF /* AppDelegate.m */; };
 		1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1015A49E1B12D8D10020FFAF /* LibraryExercise.xcdatamodeld */; };
-		1015A4A31B12D8D10020FFAF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1015A4A21B12D8D10020FFAF /* ViewController.m */; };
 		1015A4A61B12D8D10020FFAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1015A4A41B12D8D10020FFAF /* Main.storyboard */; };
 		1015A4A81B12D8D10020FFAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1015A4A71B12D8D10020FFAF /* Images.xcassets */; };
 		1015A4AB1B12D8D10020FFAF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1015A4A91B12D8D10020FFAF /* LaunchScreen.xib */; };
@@ -27,6 +26,10 @@
 		10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1D1B13389000E7E89D /* bookLoans.json */; };
 		10AC4E201B13394800E7E89D /* bookCopies.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1F1B13394800E7E89D /* bookCopies.json */; };
 		10AC4E221B1354B600E7E89D /* AuthorList.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E211B1354B600E7E89D /* AuthorList.json */; };
+		10AC4E251B138EED00E7E89D /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E241B138EED00E7E89D /* UserViewController.m */; };
+		10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E271B138F6100E7E89D /* UserNavViewController.m */; };
+		10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E2A1B138FE800E7E89D /* UserInfoView.m */; };
+		10AC4E2D1B1390E700E7E89D /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +50,6 @@
 		1015A49B1B12D8D10020FFAF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1015A49C1B12D8D10020FFAF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1015A49F1B12D8D10020FFAF /* LibraryExercise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LibraryExercise.xcdatamodel; sourceTree = "<group>"; };
-		1015A4A11B12D8D10020FFAF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1015A4A21B12D8D10020FFAF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1015A4A51B12D8D10020FFAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1015A4A71B12D8D10020FFAF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1015A4AA1B12D8D10020FFAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -73,6 +74,13 @@
 		10AC4E1D1B13389000E7E89D /* bookLoans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookLoans.json; sourceTree = "<group>"; };
 		10AC4E1F1B13394800E7E89D /* bookCopies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookCopies.json; sourceTree = "<group>"; };
 		10AC4E211B1354B600E7E89D /* AuthorList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorList.json; sourceTree = "<group>"; };
+		10AC4E231B138EED00E7E89D /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		10AC4E241B138EED00E7E89D /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		10AC4E261B138F6100E7E89D /* UserNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNavViewController.h; sourceTree = "<group>"; };
+		10AC4E271B138F6100E7E89D /* UserNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNavViewController.m; sourceTree = "<group>"; };
+		10AC4E291B138FE800E7E89D /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
+		10AC4E2A1B138FE800E7E89D /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
+		10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +129,6 @@
 				10AC4E181B13139000E7E89D /* CoreDataModel.m */,
 				1015A49B1B12D8D10020FFAF /* AppDelegate.h */,
 				1015A49C1B12D8D10020FFAF /* AppDelegate.m */,
-				1015A4A11B12D8D10020FFAF /* ViewController.h */,
-				1015A4A21B12D8D10020FFAF /* ViewController.m */,
 				1015A4A41B12D8D10020FFAF /* Main.storyboard */,
 				1015A4A71B12D8D10020FFAF /* Images.xcassets */,
 				1015A4A91B12D8D10020FFAF /* LaunchScreen.xib */,
@@ -138,6 +144,13 @@
 				10240AEF1B12FA3100B937D7 /* User.m */,
 				10240AF11B12FA6000B937D7 /* Book.h */,
 				10240AF21B12FA6000B937D7 /* Book.m */,
+				10AC4E231B138EED00E7E89D /* UserViewController.h */,
+				10AC4E241B138EED00E7E89D /* UserViewController.m */,
+				10AC4E261B138F6100E7E89D /* UserNavViewController.h */,
+				10AC4E271B138F6100E7E89D /* UserNavViewController.m */,
+				10AC4E291B138FE800E7E89D /* UserInfoView.h */,
+				10AC4E2A1B138FE800E7E89D /* UserInfoView.m */,
+				10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */,
 			);
 			path = LibraryExercise;
 			sourceTree = "<group>";
@@ -266,6 +279,7 @@
 				10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */,
 				10AC4E201B13394800E7E89D /* bookCopies.json in Resources */,
 				1015A4AB1B12D8D10020FFAF /* LaunchScreen.xib in Resources */,
+				10AC4E2D1B1390E700E7E89D /* UserInfoView.xib in Resources */,
 				10AC4E221B1354B600E7E89D /* AuthorList.json in Resources */,
 				1015A4A81B12D8D10020FFAF /* Images.xcassets in Resources */,
 			);
@@ -292,8 +306,10 @@
 				10240AE71B12F76500B937D7 /* AdminViewController.m in Sources */,
 				1015A49D1B12D8D10020FFAF /* AppDelegate.m in Sources */,
 				10240AE41B12F75C00B937D7 /* LoginViewController.m in Sources */,
+				10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */,
+				10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */,
 				1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */,
-				1015A4A31B12D8D10020FFAF /* ViewController.m in Sources */,
+				10AC4E251B138EED00E7E89D /* UserViewController.m in Sources */,
 				10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */,
 				1015A49A1B12D8D10020FFAF /* main.m in Sources */,
 			);

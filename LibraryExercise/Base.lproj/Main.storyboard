@@ -71,6 +71,26 @@
             </objects>
             <point key="canvasLocation" x="442" y="305"/>
         </scene>
+        <!--User View Controller-->
+        <scene sceneID="uTs-Hz-8Ph">
+            <objects>
+                <viewController storyboardIdentifier="UserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KqI-Tb-p6I" customClass="UserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="In5-5o-zwD"/>
+                        <viewControllerLayoutGuide type="bottom" id="JbX-3a-v2u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8T5-hQ-cl2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="t0k-MK-yGy"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0dc-5A-9P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208" y="-817"/>
+        </scene>
         <!--Admin View Controller-->
         <scene sceneID="M2s-xs-2vo">
             <objects>
@@ -192,6 +212,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYH-IH-f6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1272" y="1393"/>
+        </scene>
+        <!--User Nav View Controller-->
+        <scene sceneID="mjI-SX-HaO">
+            <objects>
+                <navigationController storyboardIdentifier="UserNavViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3yK-WT-QKm" customClass="UserNavViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lda-54-yYH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KqI-Tb-p6I" kind="relationship" relationship="rootViewController" id="LUO-Eh-L01"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fp0-wo-wRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="-1029"/>
         </scene>
     </scenes>
 </document>

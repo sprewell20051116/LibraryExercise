@@ -28,6 +28,8 @@
 -(CoreDataModel*) init;
 -(BOOL) SaveIntoCoreDataWithObj : (User*) CoreDataObj;
 -(NSMutableArray*) FetchObjInCoreData;
+-(NSArray*) CoreDataSearchUserWithName : (NSString *) Name;
+
 
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj;
 -(NSMutableArray*) FetchBookObjInCoreData;

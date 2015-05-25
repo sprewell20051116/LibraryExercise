@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-
+#import "CoreDataModel.h"
 @interface LoginViewController ()
 
 @end
@@ -16,12 +16,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_LoginBtn addTarget:self action:@selector(LoginBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) LoginBtnClicked
+{
+    if ([_UsernameTextField.text length] == 0) {
+        return;
+    }
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+
+    
+    if ([[CoreData CoreDataSearchUserWithName:_UsernameTextField.text] count] == 0) {
+        // TODO: Alert not registed
+    } else {
+
+        NSString *PW = [[[CoreData CoreDataSearchUserWithName:_UsernameTextField.text] firstObject] valueForKey:USER_CORE_DATA_PASSWORD];
+        if ([_PasswordTextfield.text isEqualToString:PW]) {
+            // TODO: GO TO USER NAVICATION CONTROLLER
+        }
+    }
 }
 
 /*

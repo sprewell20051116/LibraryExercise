@@ -197,6 +197,40 @@
 }
 
 
+#pragma mark - Search User Object
+-(NSArray*) CoreDataSearchUserWithName : (NSString *) Name
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"userName" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"userName = %@", Name];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
 
 #pragma mark - Search Book Object
 -(NSArray*) CoreDataSearchWithBookID : (NSString *) BookID

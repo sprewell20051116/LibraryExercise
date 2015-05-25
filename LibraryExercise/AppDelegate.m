@@ -21,8 +21,8 @@
     _CoreData = [[CoreDataModel alloc] init];
 
     // Override point for customization after application launch.
-    
-    [_CoreData deleteDefaultObj];
+//    
+//    [_CoreData deleteDefaultObj];
 //    
 //    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
 //    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
@@ -37,9 +37,7 @@
 //    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
 //    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
 //    
-    //[self PutThingsIntoCoreData];
-    //[self SetupBookCopies];
-    //[self ProcessBookLoanList];
+//    [self PutThingsIntoCoreData];
     return YES;
 }
 
