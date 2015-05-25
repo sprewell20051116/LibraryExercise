@@ -31,5 +31,8 @@
 
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj;
 -(NSMutableArray*) FetchBookObjInCoreData;
+- (BOOL) deleteBookWithBookObj:(NSManagedObject*)CoreDataObj;
+- (BOOL) UpdateAuthor : (NSString*) Author WithBookID : (NSString*) BookIdStr;
+-(NSArray*) CoreDataSearchWithBookID : (NSString *) BookID;
 
 @end

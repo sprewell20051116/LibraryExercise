@@ -1,0 +1,757 @@
+[
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41442-X",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41502-X",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-321-41502-X",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41502-X",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-41502-X",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 0-321-42724-7",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-07-112268-0",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-07-112268-0",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-07-112268-0",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-13-0885212-0",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-0885212-0",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-321-62335-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-321-62335-5",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-62335-5",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-62335-5",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-13-512867-6",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-512867-6",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-03221-0",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-201750-4",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-13-506417-1",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 981-4024-58-9",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 981-4024-58-9",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 981-4024-58-9",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-491-X",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 981-2592-17-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 981-2592-17-2",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 981-2592-17-2",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-321-31252-X",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-89006-206-4",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-471-85068-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-7803-1131-0",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-8306-8710-6",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-87942-274-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 1-55860-369-7",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 1-4020-7357-7",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-4020-7357-7",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-4020-7357-7",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBM 0-471-85894-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBM 0-07-137590-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBM 0-07-137590-2",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBM 0-07-137590-2",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-201-64859-8",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-672-32157-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 0-672-32157-2",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-672-32157-2",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-471-93976-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-8053-1684-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-343-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-201-61599-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 0-201-61599-1",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 1-55860-466-9",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-0-471-79147-8",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6996-72-6",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-6996-72-6",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6996-72-6",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6996-72-6",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-957-08-3281-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6137-06-8",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-6137-08-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-6137-09-9",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-6137-09-9",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6137-09-9",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-6137-09-9",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-957-32-6244-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 978-986-7881-86-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 962-8885-56-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-173-524-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-173-525-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-173-525-2",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-173-525-2",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-957-32-6637-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-957-32-6637-2",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-957-32-6637-2",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-120-576-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-7103-09-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-7103-09-2",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-7103-09-2",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-957-455-827-4",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":7
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":4
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":4
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":4
+  },
+  {
+    "BookId":"ISBN 978-986-85311-7-8",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":4
+  },
+  {
+    "BookId":"ISBN 978-986-6723-44-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 978-986-6118-24-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-6118-24-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-241-126-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-241-126-1",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-241-126-1",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-241-126-1",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-774-5",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-417-535-1",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-272-119-3",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-957-32-6981-6",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 978-957-32-6981-6",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-241-490-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-241-490-3",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-241-490-3",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-241-490-3",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-216-402-0",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":3
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-775-2",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":5
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL03",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-776-9",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-777-6",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-777-6",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-777-6",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-777-6",
+    "BranchId":"TPEL05",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-788-3",
+    "BranchId":"TPEL01",
+    "No-Of_Copies":2
+  },
+  {
+    "BookId":"ISBN 978-986-417-788-3",
+    "BranchId":"TPEL02",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-788-3",
+    "BranchId":"TPEL04",
+    "No-Of_Copies":1
+  },
+  {
+    "BookId":"ISBN 978-986-417-788-3",
+    "BranchId":"TPEL06",
+    "No-Of_Copies":2
+  }
+]

@@ -18,11 +18,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    /*
     CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
+    NSUInteger Count = [SeawrchResult count];
+    NSLog(@"Count = %d", Count);
+    
+    for (NSUInteger index = 0; index < Count; index++) {
+        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
+    }
+    */
     //NSLog(@"count = %d", [[CoreData FetchBookObjInCoreData] count]);
-    NSLog(@"date = %@", [[[CoreData FetchBookObjInCoreData] firstObject] valueForKey:BOOK_DATA_KEY_DUE_DATE]);
+    //NSLog(@"date = %@", [[[CoreData FetchBookObjInCoreData] firstObject] valueForKey:BOOK_DATA_KEY_DUE_DATE]);
     //[self PutThingsIntoCoreData];
     
+    //[self SetupBookCopies];
     return YES;
 }
 
@@ -89,11 +99,65 @@
     }
 }
 
+-(void) ProcessAuthorList
+{
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    
+    NSDictionary *AuthorListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"AuthorList"];
+    NSLog(@"Dic = %@", AuthorListDic);
+    
+    for (NSDictionary *BookCopy in AuthorListDic) {
+        NSLog(@"Bookid = %@", [BookCopy valueForKey:@"BookID"]);
+        [CoreData UpdateAuthor:[BookCopy valueForKey:@"AuthorName"] WithBookID:[BookCopy valueForKey:@"BookID"]];
+    }
+}
+
+
+-(void) SetupBookCopies
+{
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+
+    NSDictionary *BookCopyDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"bookCopies"];
+    // 1. Find the isbn
+    NSLog(@"Dic = %@", BookCopyDic);
+    //NSLog(@"find count = %d", [CoreData CoreDataSearchWithBookID:[BookCopyDic firstObj]]);
+    
+    for (NSDictionary *BookCopy in BookCopyDic) {
+        
+        NSLog(@"Book  = %@", [BookCopy valueForKey:@"BookId"]);
+        NSLog(@"BookBranch  = %@", [BookCopy valueForKey:@"BranchId"]);
+        NSLog(@"BookCopies  = %@", [BookCopy valueForKey:@"No-Of_Copies"]);
+
+        NSManagedObject *generalBookObj = [[CoreData CoreDataSearchWithBookID:[BookCopy valueForKey:@"BookId"]] firstObject];
+        
+        NSInteger Loops = [[BookCopy valueForKey:@"No-Of_Copies"] integerValue];
+        for (NSInteger index = 0; index < Loops; index++) {
+            
+            Book *BookObj = [[Book alloc] init];
+            BookObj.Title = [generalBookObj valueForKey:BOOK_DATA_KEY_TITLE];
+            BookObj.Id = [generalBookObj valueForKey:BOOK_DATA_KEY_ID];
+            BookObj.Publisher = [generalBookObj valueForKey:BOOK_DATA_KEY_PUBLISHER];
+            BookObj.Author = [generalBookObj valueForKey:BOOK_DATA_KEY_AUTHOR];
+            BookObj.GUID = [NSUUID UUID].UUIDString;
+            BookObj.Branch = [BookCopy valueForKey:@"BranchId"];
+            
+            NSLog(@"Looping index = %d", index);
+            
+            [CoreData SaveBookIntoCoreDataWithObj:BookObj];
+        }
+        
+        //[CoreData deleteBookWithBookObj:generalBookObj];
+        
+    }
+     
+}
 
 -(void) PutThingsIntoCoreData
 {
-    [self PutUserListInCoreData];
-    [self PutBookListInCoreData];
+//    [self PutUserListInCoreData];
+//    [self PutBookListInCoreData];
+//    [self ProcessAuthorList];
+    //[self SetupBookCopies];
 }
 
 

@@ -1,0 +1,338 @@
+[
+  {
+    "BookID":"ISBN 0-321-41442-X",
+    "AuthorName":"R. Elmasri"
+  },
+  {
+    "BookID":"ISBN 0-321-41442-X",
+    "AuthorName":"S.B. Navathe"
+  },
+  {
+    "BookID":"ISBN 0-321-41502-X",
+    "AuthorName":"R. Elmasri"
+  },
+  {
+    "BookID":"ISBN 0-321-41502-X",
+    "AuthorName":"S.B. Navathe"
+  },
+  {
+    "BookID":"ISBN 0-321-42724-7",
+    "AuthorName":"R. Elmasri"
+  },
+  {
+    "BookID":"ISBN 0-321-42724-7",
+    "AuthorName":"S.B. Navathe"
+  },
+  {
+    "BookID":"ISBN 0-07-112268-0",
+    "AuthorName":"A. Silberschatz"
+  },
+  {
+    "BookID":"ISBN 0-07-112268-0",
+    "AuthorName":"H.F. Korth"
+  },
+  {
+    "BookID":"ISBN 0-07-112268-0",
+    "AuthorName":"S. Sudarshan"
+  },
+  {
+    "BookID":"ISBN 0-13-0885212-0",
+    "AuthorName":"D.M. Kroenke"
+  },
+  {
+    "BookID":"ISBN 0-321-62335-5",
+    "AuthorName":"D.C. Lay"
+  },
+  {
+    "BookID":"ISBN 0-13-512867-6",
+    "AuthorName":"S.J. Leon"
+  },
+  {
+    "BookID":"ISBN 0-13-03221-0",
+    "AuthorName":"W. Stallings"
+  },
+  {
+    "BookID":"ISBN 0-13-201750-4",
+    "AuthorName":"W. Stallings"
+  },
+  {
+    "BookID":"ISBN 0-13-506417-1",
+    "AuthorName":"W. Stallings"
+  },
+  {
+    "BookID":"ISBN 981-4024-58-9",
+    "AuthorName":"A.S. Tanenbaum"
+  },
+  {
+    "BookID":"ISBN 1-55860-491-X",
+    "AuthorName":"D.A. Patterson"
+  },
+  {
+    "BookID":"ISBN 1-55860-491-X",
+    "AuthorName":"J.L. Hennessy"
+  },
+  {
+    "BookID":"ISBN 981-2592-17-2",
+    "AuthorName":"D.A. Patterson"
+  },
+  {
+    "BookID":"ISBN 981-2592-17-2",
+    "AuthorName":"J.L. Hennessy"
+  },
+  {
+    "BookID":"ISBN 0-321-31252-X",
+    "AuthorName":"E. Angel"
+  },
+  {
+    "BookID":"ISBN 0-89006-206-4",
+    "AuthorName":"B. Keiser"
+  },
+  {
+    "BookID":"ISBN 0-471-85068-3",
+    "AuthorName":"H.W. Ott"
+  },
+  {
+    "BookID":"ISBN 0-7803-1131-0",
+    "AuthorName":"R.J. Herrick"
+  },
+  {
+    "BookID":"ISBN 0-8306-8710-6",
+    "AuthorName":"J.J. Carr"
+  },
+  {
+    "BookID":"ISBN 0-87942-274-2",
+    "AuthorName":"W.D. Reeve"
+  },
+  {
+    "BookID":"ISBN 1-55860-369-7",
+    "AuthorName":"J.D. Gibson"
+  },
+  {
+    "BookID":"ISBN 1-55860-369-7",
+    "AuthorName":"T. Berger"
+  },
+  {
+    "BookID":"ISBN 1-55860-369-7",
+    "AuthorName":"T. Lookabaugh"
+  },
+  {
+    "BookID":"ISBN 1-55860-369-7",
+    "AuthorName":"D. Lindbergh"
+  },
+  {
+    "BookID":"ISBN 1-55860-369-7",
+    "AuthorName":"R.L. Baker"
+  },
+  {
+    "BookID":"ISBN 1-4020-7357-7",
+    "AuthorName":"M. Bosi"
+  },
+  {
+    "BookID":"ISBN 1-4020-7357-7",
+    "AuthorName":"R.E. Goldberg"
+  },
+  {
+    "BookID":"ISBM 0-471-85894-3",
+    "AuthorName":"W. Hoeg"
+  },
+  {
+    "BookID":"ISBM 0-471-85894-3",
+    "AuthorName":"T. Lauterbach"
+  },
+  {
+    "BookID":"ISBM 0-07-137590-2",
+    "AuthorName":"R.S. Chernock"
+  },
+  {
+    "BookID":"ISBM 0-07-137590-2",
+    "AuthorName":"R.J. Crinon"
+  },
+  {
+    "BookID":"ISBM 0-07-137590-2",
+    "AuthorName":"M.A. Dolan"
+  },
+  {
+    "BookID":"ISBM 0-07-137590-2",
+    "AuthorName":"J.R. Mick Jr."
+  },
+  {
+    "BookID":"ISBN 0-201-64859-8",
+    "AuthorName":"Rob Williams"
+  },
+  {
+    "BookID":"ISBN 0-672-32157-2",
+    "AuthorName":"Juha Heiskala"
+  },
+  {
+    "BookID":"ISBN 0-672-32157-2",
+    "AuthorName":"John Terry"
+  },
+  {
+    "BookID":"ISBN 0-471-93976-5",
+    "AuthorName":"N.J. Fliege"
+  },
+  {
+    "BookID":"ISBN 0-8053-1684-1",
+    "AuthorName":"K Steiglitz"
+  },
+  {
+    "BookID":"ISBN 1-55860-343-3",
+    "AuthorName":"D. Culler"
+  },
+  {
+    "BookID":"ISBN 1-55860-343-3",
+    "AuthorName":"J. Pal Singh"
+  },
+  {
+    "BookID":"ISBN 0-201-61599-1",
+    "AuthorName":"R. Smith"
+  },
+  {
+    "BookID":"ISBN 1-55860-466-9",
+    "AuthorName":"A. Spanias"
+  },
+  {
+    "BookID":"ISBN 1-55860-466-9",
+    "AuthorName":"T. Painter"
+  },
+  {
+    "BookID":"ISBN 1-55860-466-9",
+    "AuthorName":"M. Venkatraman"
+  },
+  {
+    "BookID":"ISBN 978-0-471-79147-8",
+    "AuthorName":"V.S. Subrahmanian"
+  },
+  {
+    "BookID":"ISBN 978-986-6996-72-6",
+    "AuthorName":"易中天"
+  },
+  {
+    "BookID":"ISBN 978-957-08-3281-5",
+    "AuthorName":"王立群"
+  },
+  {
+    "BookID":"ISBN 978-986-6137-06-8",
+    "AuthorName":"南門太守"
+  },
+  {
+    "BookID":"ISBN 978-986-6137-08-2",
+    "AuthorName":"南門太守"
+  },
+  {
+    "BookID":"ISBN 978-986-6137-09-9",
+    "AuthorName":"南門太守"
+  },
+  {
+    "BookID":"ISBN 978-957-32-6244-2",
+    "AuthorName":"小和田哲男"
+  },
+  {
+    "BookID":"ISBN 978-986-7881-86-1",
+    "AuthorName":"阪本浩"
+  },
+  {
+    "BookID":"ISBN 962-8885-56-1",
+    "AuthorName":"金鐵木"
+  },
+  {
+    "BookID":"ISBN 978-986-173-524-5",
+    "AuthorName":"王立群"
+  },
+  {
+    "BookID":"ISBN 978-986-173-525-2",
+    "AuthorName":"王立群"
+  },
+  {
+    "BookID":"ISBN 978-957-32-6637-2",
+    "AuthorName":"李守中"
+  },
+  {
+    "BookID":"ISBN 978-986-120-576-2",
+    "AuthorName":"劍眉枉凝"
+  },
+  {
+    "BookID":"ISBN 978-986-7103-09-2",
+    "AuthorName":"沈傑"
+  },
+  {
+    "BookID":"ISBN 978-986-7103-09-2",
+    "AuthorName":"萬彤"
+  },
+  {
+    "BookID":"ISBN 978-957-455-827-4",
+    "AuthorName":"馬俊英"
+  },
+  {
+    "BookID":"ISBN 978-986-85311-7-8",
+    "AuthorName":"文裁縫"
+  },
+  {
+    "BookID":"ISBN 978-986-6723-44-5",
+    "AuthorName":"黃中憲"
+  },
+  {
+    "BookID":"ISBN 978-986-6118-24-1",
+    "AuthorName":"王立群"
+  },
+  {
+    "BookID":"ISBN 978-986-6118-24-2",
+    "AuthorName":"王立群"
+  },
+  {
+    "BookID":"ISBN 978-986-241-126-1",
+    "AuthorName":"陳瀅"
+  },
+  {
+    "BookID":"ISBN 978-986-417-774-5",
+    "AuthorName":"李明"
+  },
+  {
+    "BookID":"ISBN 978-986-417-774-5",
+    "AuthorName":"胡瑋珊"
+  },
+  {
+    "BookID":"ISBN 978-986-417-774-5",
+    "AuthorName":"楊美齡"
+  },
+  {
+    "BookID":"ISBN 978-986-417-535-1",
+    "AuthorName":"黃秀媛"
+  },
+  {
+    "BookID":"ISBN 978-986-272-119-3",
+    "AuthorName":"王怡棻"
+  },
+  {
+    "BookID":"ISBN 978-986-272-119-3",
+    "AuthorName":"陳儀"
+  },
+  {
+    "BookID":"ISBN 978-957-32-6981-6",
+    "AuthorName":"吳豐山"
+  },
+  {
+    "BookID":"ISBN 978-986-241-490-3",
+    "AuthorName":"蕭萬長"
+  },
+  {
+    "BookID":"ISBN 978-986-216-402-0",
+    "AuthorName":"吳錦勳"
+  },
+  {
+    "BookID":"ISBN 978-986-417-775-2",
+    "AuthorName":"師明睿"
+  },
+  {
+    "BookID":"ISBN 978-986-417-776-9",
+    "AuthorName":"師明睿"
+  },
+  {
+    "BookID":"ISBN 978-986-417-777-6",
+    "AuthorName":"師明睿"
+  },
+  {
+    "BookID":"ISBN 978-986-417-788-3",
+    "AuthorName":"師明睿"
+  }
+]

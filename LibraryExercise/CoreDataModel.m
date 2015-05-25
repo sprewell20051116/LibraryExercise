@@ -82,6 +82,21 @@
     return YES;
 }
 
+- (BOOL) UpdateAuthor : (NSString*) Author WithBookID : (NSString*) BookIdStr
+{
+    NSManagedObject *BookObj = [[self CoreDataSearchWithBookID:BookIdStr] firstObject];
+    NSLog(@"BookObj = %@", [BookObj valueForKey:BOOK_DATA_KEY_TITLE]);
+    [BookObj setValue:Author forKey:BOOK_DATA_KEY_AUTHOR];
+    
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+
+}
+
 
 #pragma mark - Fetch User Object
 -(NSMutableArray*) FetchObjInCoreData
@@ -98,7 +113,7 @@
 }
 
 
-#pragma mark - Fetch User Object
+#pragma mark - Fetch Book Object
 -(NSMutableArray*) FetchBookObjInCoreData
 {
     NSMutableArray *CoreDataArray = [[NSMutableArray alloc] init];
@@ -109,6 +124,59 @@
     CoreDataArray = [[_context executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     return CoreDataArray;
+    
+}
+
+
+#pragma mark - Delete Book Object
+- (BOOL)deleteBookWithBookObj:(NSManagedObject*)CoreDataObj
+{
+    [_context deleteObject:CoreDataObj];
+    
+    NSError *error = nil;
+    
+    if (![_context save:&error]) {
+        NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    
+    return YES;
+    
+}
+
+
+
+#pragma mark - Delete Book Object
+-(NSArray*) CoreDataSearchWithBookID : (NSString *) BookID
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_ID ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@", BookID];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
     
 }
 

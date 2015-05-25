@@ -25,6 +25,8 @@
 		10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E181B13139000E7E89D /* CoreDataModel.m */; };
 		10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1B1B132F1E00E7E89D /* bookList.json */; };
 		10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1D1B13389000E7E89D /* bookLoans.json */; };
+		10AC4E201B13394800E7E89D /* bookCopies.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1F1B13394800E7E89D /* bookCopies.json */; };
+		10AC4E221B1354B600E7E89D /* AuthorList.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E211B1354B600E7E89D /* AuthorList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		10AC4E181B13139000E7E89D /* CoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataModel.m; sourceTree = "<group>"; };
 		10AC4E1B1B132F1E00E7E89D /* bookList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookList.json; sourceTree = "<group>"; };
 		10AC4E1D1B13389000E7E89D /* bookLoans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookLoans.json; sourceTree = "<group>"; };
+		10AC4E1F1B13394800E7E89D /* bookCopies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookCopies.json; sourceTree = "<group>"; };
+		10AC4E211B1354B600E7E89D /* AuthorList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AuthorList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 				10AC4E1D1B13389000E7E89D /* bookLoans.json */,
 				10AC4E1B1B132F1E00E7E89D /* bookList.json */,
 				100815171B12F28500FA2D7E /* UserList.json */,
+				10AC4E1F1B13394800E7E89D /* bookCopies.json */,
+				10AC4E211B1354B600E7E89D /* AuthorList.json */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 				1015A4A61B12D8D10020FFAF /* Main.storyboard in Resources */,
 				10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */,
 				10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */,
+				10AC4E201B13394800E7E89D /* bookCopies.json in Resources */,
 				1015A4AB1B12D8D10020FFAF /* LaunchScreen.xib in Resources */,
+				10AC4E221B1354B600E7E89D /* AuthorList.json in Resources */,
 				1015A4A81B12D8D10020FFAF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
