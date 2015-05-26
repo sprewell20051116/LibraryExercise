@@ -82,10 +82,23 @@
                     <view key="view" contentMode="scaleToFill" id="8T5-hQ-cl2">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO RECORDS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8z-vu-iaJ">
+                                <rect key="frame" x="183" y="592" width="403" height="85"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="t0k-MK-yGy"/>
+                    <navigationItem key="navigationItem" id="t0k-MK-yGy">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="XjE-XX-Vfv"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="LogoutBtn" destination="XjE-XX-Vfv" id="uim-A3-M9X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dc-5A-9P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -166,12 +179,12 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zt-ry-DGG">
                                 <rect key="frame" x="209" y="300" width="350" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reenter Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oxp-qr-Ahq">
                                 <rect key="frame" x="209" y="350" width="350" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Yi-bp-qu5">
                                 <rect key="frame" x="209" y="400" width="350" height="30"/>
@@ -205,8 +218,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="Address" destination="7LJ-jc-Rzh" id="vgN-Ub-MEO"/>
                         <outlet property="CancelBtn" destination="dUw-Jr-TXZ" id="8p1-5j-cQr"/>
+                        <outlet property="CardNumber" destination="7Yi-bp-qu5" id="WA3-wc-F2Y"/>
+                        <outlet property="MobilePhone" destination="93O-nB-gJY" id="E7Z-YJ-ZDG"/>
+                        <outlet property="Password" destination="0zt-ry-DGG" id="p1n-oy-n2l"/>
+                        <outlet property="PasswordVerify" destination="oxp-qr-Ahq" id="qMB-95-Uch"/>
                         <outlet property="RegistBtn" destination="R5D-Tc-doO" id="NwE-5I-bxs"/>
+                        <outlet property="UserName" destination="jre-2p-q9b" id="yFn-4e-mAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYH-IH-f6L" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoView.h"
+#import "CoreDataModel.h"
 
-@interface UserViewController : UIViewController
-
+@interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *LogoutBtn;
+@property (strong, nonatomic) CoreDataModel     *CoreData;
+@property (strong, nonatomic) UserInfoView      *UserInfoSubView;
+@property (strong, nonatomic) UITableView       *UserLoanTableView;
 @end

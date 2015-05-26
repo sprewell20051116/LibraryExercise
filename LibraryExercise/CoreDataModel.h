@@ -29,6 +29,7 @@
 -(BOOL) SaveIntoCoreDataWithObj : (User*) CoreDataObj;
 -(NSMutableArray*) FetchObjInCoreData;
 -(NSArray*) CoreDataSearchUserWithName : (NSString *) Name;
+-(NSArray*) CoreDataSearchUserWithCardID : (NSString *) CardID;
 
 
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj;
@@ -44,6 +45,9 @@
 
 -(NSArray*) CoreDataSearchinBranchWithString : (NSString *) SearchString;
 -(void) deleteDefaultObj;
+
+-(NSArray*) CoreDataSearchLoanListWithUserID : (NSString *) UserID;
+
 
 // not use
 - (BOOL) LoanBookWithIDStr:(NSString*) BookID

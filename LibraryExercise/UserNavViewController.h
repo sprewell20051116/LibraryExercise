@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UserNavViewController : UINavigationController
-
+@property (strong,nonatomic) NSString *UserName;
+@property (strong,nonatomic) NSString *UserID;
 @end

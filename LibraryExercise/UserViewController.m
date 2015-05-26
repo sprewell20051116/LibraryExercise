@@ -6,9 +6,14 @@
 //  Copyright (c) 2015 iOSTutor. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "UserViewController.h"
+#import "UserNavViewController.h"
 
-@interface UserViewController ()
+@interface UserViewController () {
+    NSArray *_LoanListData;
+    NSManagedObject *_UserObj;
+}
 
 @end
 
@@ -16,13 +21,99 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     // Do any additional setup after loading the view.
+    
+    _CoreData = [[CoreDataModel alloc] init];
+    
+    _UserObj = [[_CoreData CoreDataSearchUserWithName:((UserNavViewController*)(self.navigationController)).UserName] firstObject];
+    _LoanListData = [_CoreData CoreDataSearchLoanListWithUserID:[_UserObj valueForKey:USER_CORE_DATA_CARDID]];
+    if ([_LoanListData count] != 0) {
+        [self init_UserLoanTableView];
+    } 
+    
+    [self init_UserInfoSubView];
+
+    [_LogoutBtn setTarget:self];
+    [_LogoutBtn setAction:@selector(LogoutBtnClicked)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void) init_UserInfoSubView
+{
+    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"UserInfoView"
+                                                      owner:self
+                                                    options:nil];
+    
+    _UserInfoSubView = (UserInfoView*)[nibViews objectAtIndex:0];
+    CGRect Frame = _UserInfoSubView.frame;
+    Frame.origin.y = 44.0f + 20.0f;
+    [_UserInfoSubView setFrame:Frame];
+    [_UserInfoSubView.layer setShadowColor:[[UIColor darkGrayColor] CGColor]];
+    [_UserInfoSubView.layer setShadowOffset:CGSizeMake(1,8)];
+    [_UserInfoSubView.layer setShadowOpacity:0.5f];
+    
+    
+    _UserInfoSubView.NameLab.text = ((UserNavViewController*)(self.navigationController)).UserName;
+    _UserInfoSubView.CardIDLab.text =  [_UserObj valueForKey:USER_CORE_DATA_CARDID];
+    _UserInfoSubView.MobilePhoneLab.text = [_UserObj valueForKey:USER_CORE_DATA_MOBILE];
+    _UserInfoSubView.AddressLab.text = [_UserObj valueForKey:USER_CORE_DATA_ADDR];
+    
+    
+    [self.view addSubview:_UserInfoSubView];
+}
+
+-(void) init_UserLoanTableView
+{
+    _UserLoanTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250, self.view.frame.size.width, self.view.frame.size.height - 250)];
+    _UserLoanTableView.delegate = self;
+    _UserLoanTableView.dataSource = self;
+    [_UserLoanTableView setBackgroundColor:[UIColor redColor]];
+    [self.view addSubview:_UserLoanTableView];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+     
+     
+     static NSString *CellIdentifier = @"Cell";
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+     
+     // Configure the cell...
+     if (cell == nil) {
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+     }
+     cell.textLabel.text = @"TESTTTT";
+ 
+ return cell;
+ }
+
+-(void) LogoutBtnClicked
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation

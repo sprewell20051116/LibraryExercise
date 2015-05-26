@@ -7,6 +7,8 @@
 //
 
 #import "RegisterViewController.h"
+#import "CoreDataModel.h"
+#import "User.h"
 
 @interface RegisterViewController ()
 
@@ -29,6 +31,66 @@
 
 -(void)RegisterBtnClicked
 {
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    // 1. check user name
+    
+    if ([_UserName.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"輸入你的名字" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+
+    
+    if ([[CoreData CoreDataSearchUserWithName:_UserName.text] count] != 0) {
+        // UserName is used
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"名字已經被用了唷" message:@"再取一個吧" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    // 2. check password
+    if ([_UserName.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"輸入你的密碼" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    if ([_Password.text isEqualToString:_PasswordVerify.text] != TRUE) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密碼不一樣唷" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    
+    // 3. check CardID
+    if ([_CardNumber.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"輸入你的 CardID" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    if ([[CoreData CoreDataSearchUserWithCardID:_UserName.text] count] != 0) {
+        // UserName is used
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ID 已經被用過囉" message:@"再想一個吧" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    
+    User *UserObj = [[User alloc] init];
+    UserObj.UserName = _UserName.text;
+    UserObj.Password = _Password.text;
+    UserObj.CardId = _CardNumber.text;
+    
+    if ([_MobilePhone.text length] != 0) {
+        UserObj.Phone = _MobilePhone.text;
+    }
+    
+    if ([_Address.text length] != 0) {
+        UserObj.Address = _Address.text;
+    }
+    
+    [CoreData SaveIntoCoreDataWithObj:UserObj];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

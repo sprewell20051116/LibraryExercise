@@ -232,6 +232,76 @@
 }
 
 
+-(NSArray*) CoreDataSearchUserWithCardID : (NSString *) CardID
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:USER_CORE_DATA_CARDID ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"cardId = %@", CardID];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+#pragma mark - Get Loan list with user id
+-(NSArray*) CoreDataSearchLoanListWithUserID : (NSString *) UserID
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_LOANRECORD_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"userID" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"userID = %@", UserID];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+
 #pragma mark - Search Book Object
 -(NSArray*) CoreDataSearchWithBookID : (NSString *) BookID
 {

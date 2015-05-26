@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "CoreDataModel.h"
+#import "UserNavViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -35,13 +36,37 @@
     
     if ([[CoreData CoreDataSearchUserWithName:_UsernameTextField.text] count] == 0) {
         // TODO: Alert not registed
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒找到你的名字" message:@"就沒有找到啊！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
     } else {
 
         NSString *PW = [[[CoreData CoreDataSearchUserWithName:_UsernameTextField.text] firstObject] valueForKey:USER_CORE_DATA_PASSWORD];
         if ([_PasswordTextfield.text isEqualToString:PW]) {
             // TODO: GO TO USER NAVICATION CONTROLLER
+            [self GotoUserNavView];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密碼不對" message:@"就不對啊！" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        
         }
     }
+}
+
+-(void) GotoUserNavView
+{
+    //CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+
+    
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    UserNavViewController* AddVC = [sb instantiateViewControllerWithIdentifier:@"UserNavViewController"];
+    
+    AddVC.UserName = _UsernameTextField.text;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:AddVC animated:YES completion:nil];
+    });
 }
 
 /*

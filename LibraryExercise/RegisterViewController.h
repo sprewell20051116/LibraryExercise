@@ -11,5 +11,11 @@
 @interface RegisterViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *RegistBtn;
 @property (strong, nonatomic) IBOutlet UIButton *CancelBtn;
+@property (strong, nonatomic) IBOutlet UITextField *UserName;
+@property (strong, nonatomic) IBOutlet UITextField *Password;
+@property (strong, nonatomic) IBOutlet UITextField *PasswordVerify;
+@property (strong, nonatomic) IBOutlet UITextField *CardNumber;
+@property (strong, nonatomic) IBOutlet UITextField *MobilePhone;
+@property (strong, nonatomic) IBOutlet UITextField *Address;
 
 @end
