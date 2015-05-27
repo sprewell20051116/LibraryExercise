@@ -74,7 +74,7 @@
     _UserLoanTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250 + 44 + 20, self.view.frame.size.width, self.view.frame.size.height - 250 - 44 - 20)];
     _UserLoanTableView.delegate = self;
     _UserLoanTableView.dataSource = self;
-    [_UserLoanTableView setBackgroundColor:[UIColor redColor]];
+    //[_UserLoanTableView setBackgroundColor:[UIColor redColor]];
     [self.view addSubview:_UserLoanTableView];
 }
 
@@ -92,7 +92,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 50;
 }
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,6 +108,7 @@
      NSManagedObject *LoanObj = [_LoanListData objectAtIndex:indexPath.row];
      NSManagedObject *BookObj = [[_CoreData CoreDataSearchWithBookID:[LoanObj valueForKey:@"bookId"]] firstObject];
      cell.textLabel.text = [BookObj valueForKey:BOOK_DATA_KEY_TITLE];
+     cell.detailTextLabel.text = [LoanObj valueForKey:@"branch"];
      [cell.textLabel setFont:[UIFont systemFontOfSize:30.0f]];
      
  return cell;

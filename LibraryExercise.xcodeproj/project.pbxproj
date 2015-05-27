@@ -30,6 +30,7 @@
 		10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E271B138F6100E7E89D /* UserNavViewController.m */; };
 		10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E2A1B138FE800E7E89D /* UserInfoView.m */; };
 		10AC4E2D1B1390E700E7E89D /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */; };
+		10D8ED331B160DDB0058B726 /* BookInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D8ED321B160DDB0058B726 /* BookInfoViewController.m */; };
 		10E9E4CF1B1552F500D315AE /* BorrowingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		10AC4E291B138FE800E7E89D /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
 		10AC4E2A1B138FE800E7E89D /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
+		10D8ED311B160DDB0058B726 /* BookInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoViewController.h; sourceTree = "<group>"; };
+		10D8ED321B160DDB0058B726 /* BookInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoViewController.m; sourceTree = "<group>"; };
 		10E9E4CD1B1552F500D315AE /* BorrowingBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorrowingBookViewController.h; sourceTree = "<group>"; };
 		10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorrowingBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +159,8 @@
 				10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */,
 				10E9E4CD1B1552F500D315AE /* BorrowingBookViewController.h */,
 				10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */,
+				10D8ED311B160DDB0058B726 /* BookInfoViewController.h */,
+				10D8ED321B160DDB0058B726 /* BookInfoViewController.m */,
 			);
 			path = LibraryExercise;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10240AF01B12FA3100B937D7 /* User.m in Sources */,
+				10D8ED331B160DDB0058B726 /* BookInfoViewController.m in Sources */,
 				10240AE11B12F75200B937D7 /* RegisterViewController.m in Sources */,
 				10240AEA1B12F81500B937D7 /* JSONFileManager.m in Sources */,
 				10240AF31B12FA6000B937D7 /* Book.m in Sources */,

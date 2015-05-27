@@ -71,7 +71,7 @@
     //[NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
     //[NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
     //[NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
-    //[NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
+    [NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
 
     
     NSError *error = nil;
@@ -81,6 +81,37 @@
     }
     return YES;
 }
+
+
+-(BOOL) SaveBookCopiesIntoCoreDataWithObj : (Book*) CoreDataObj
+{
+    
+    NSString *CoreDataEntityName = CORE_DATA_BOOK_COPIES_ENTITY;
+    NSManagedObject *NewObj = [NSEntityDescription insertNewObjectForEntityForName:CoreDataEntityName inManagedObjectContext:_context];
+    
+    if (CoreDataObj == nil) {
+        return NO;
+    }
+    [NewObj setValue:CoreDataObj.GUID forKey:BOOK_DATA_KEY_GUID];
+    [NewObj setValue:CoreDataObj.Title forKey:BOOK_DATA_KEY_TITLE];
+    [NewObj setValue:CoreDataObj.Id forKey:BOOK_DATA_KEY_ID];
+    [NewObj setValue:CoreDataObj.Author forKey:BOOK_DATA_KEY_AUTHOR];
+    [NewObj setValue:CoreDataObj.Publisher forKey:BOOK_DATA_KEY_PUBLISHER];
+    [NewObj setValue:CoreDataObj.Branch forKey:BOOK_DATA_KEY_BRANCH];
+    //[NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
+    //[NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
+    //[NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
+    [NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
+    
+    
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
 
 - (BOOL) UpdateAuthor : (NSString*) Author WithBookID : (NSString*) BookIdStr
 {
@@ -164,7 +195,7 @@
 }
 
 
-#pragma mark - Fetch Book Object
+#pragma mark - Fetch LoanRocord Object
 -(NSMutableArray*) FetchLoanRecord
 {
     NSMutableArray *CoreDataArray = [[NSMutableArray alloc] init];
@@ -320,7 +351,7 @@
     
     NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
     
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@", BookID];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id contains[cd] %@", BookID];
     
     [fetchedResultsController.fetchRequest setPredicate:predicate];
     
@@ -335,6 +366,111 @@
     return fetchedResultsController.fetchedObjects;
     
 }
+
+
+-(NSArray*) CoreDataSearchWithBookName : (NSString *) BookName
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_TITLE ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"title contains[cd] %@", BookName];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+
+-(NSArray*) CoreDataSearchWithPublisherName : (NSString *) PublisherName
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_PUBLISHER ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"publisher contains[cd] %@", PublisherName];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+-(NSArray*) CoreDataSearchWithAuthorName : (NSString *) AuthorName
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_AUTHOR ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"author contains[cd] %@", AuthorName];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
 
 
 #pragma mark - Search branch

@@ -20,24 +20,23 @@
     
     _CoreData = [[CoreDataModel alloc] init];
 
-    // Override point for customization after application launch.
-//    
-//    [_CoreData deleteDefaultObj];
-//    
-//    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
-//    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
-//    NSUInteger Count = [SeawrchResult count];
-//    NSLog(@"Count = %d", Count);
-//    
-//    for (NSUInteger index = 0; index < Count; index++) {
-//        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
-//    }
-//
-//    NSLog(@"Count %d", [[_CoreData FetchLoanRecord] count]);
-//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
-//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
-//    
-//    [self PutThingsIntoCoreData];
+     //Override point for customization after application launch.
+    
+
+    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
+    NSUInteger Count = [SeawrchResult count];
+    NSLog(@"Count = %d", Count);
+    
+    for (NSUInteger index = 0; index < Count; index++) {
+        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
+    }
+
+    NSLog(@"Count %d", [[_CoreData FetchLoanRecord] count]);
+    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
+    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
+    
+    //[self PutThingsIntoCoreData];
     return YES;
 }
 
@@ -97,7 +96,7 @@
         BookObj.Title = [BookDic valueForKey:@"Title"];
         BookObj.Id = [BookDic valueForKey:@"BookId"];
         BookObj.Publisher = [BookDic valueForKey:@"PublisherName"];
-        
+        BookObj.isInStock = YES;
         [_CoreData SaveBookIntoCoreDataWithObj:BookObj];
     }
 }
@@ -144,7 +143,7 @@
             
             NSLog(@"Looping index = %d", index);
             
-            [_CoreData SaveBookIntoCoreDataWithObj:BookObj];
+            [_CoreData SaveBookCopiesIntoCoreDataWithObj:BookObj];
         }
         
         //[_CoreData deleteBookWithBookObj:generalBookObj];

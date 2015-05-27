@@ -137,10 +137,35 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="SearchBtn" destination="Cna-U1-71X" id="qQ4-mZ-WPF"/>
+                        <outlet property="SearchResult" destination="drG-CW-Wh1" id="7qP-tL-TEE"/>
+                        <outlet property="SearchTextField" destination="VLF-9n-mvN" id="Xnf-qQ-Dgr"/>
+                        <segue destination="sns-bL-YzB" kind="show" identifier="BookInfo" id="kf0-Bq-RlF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mX-nn-1Er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3035" y="-817"/>
+        </scene>
+        <!--Book Info View Controller-->
+        <scene sceneID="RdW-wS-qM3">
+            <objects>
+                <viewController storyboardIdentifier="BookInfoViewController" id="sns-bL-YzB" customClass="BookInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WC7-sN-tF5"/>
+                        <viewControllerLayoutGuide type="bottom" id="rl5-rb-arr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="56a-al-ITb">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="of9-IV-59a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3874" y="-817"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="M2s-xs-2vo">

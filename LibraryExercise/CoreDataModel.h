@@ -14,6 +14,7 @@
 
 #define CORE_DATA_ENTITY                 @"Users"
 #define CORE_DATA_BOOK_ENTITY            @"Books"
+#define CORE_DATA_BOOK_COPIES_ENTITY     @"BooksCopies"
 #define CORE_DATA_LOANRECORD_ENTITY      @"LoanRecord"
 
 @class User;
@@ -33,6 +34,8 @@
 
 
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj;
+-(BOOL) SaveBookCopiesIntoCoreDataWithObj : (Book*) CoreDataObj;
+
 -(NSMutableArray*) FetchBookObjInCoreData;
 -(NSMutableArray*) FetchLoanRecord;
 
@@ -47,6 +50,9 @@
 -(void) deleteDefaultObj;
 
 -(NSArray*) CoreDataSearchLoanListWithUserID : (NSString *) UserID;
+-(NSArray*) CoreDataSearchWithPublisherName : (NSString *) PublisherName;
+-(NSArray*) CoreDataSearchWithBookName : (NSString *) BookName;
+-(NSArray*) CoreDataSearchWithAuthorName : (NSString *) AuthorName;
 
 
 // not use

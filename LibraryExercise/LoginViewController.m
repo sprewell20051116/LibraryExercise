@@ -29,10 +29,18 @@
 -(void) LoginBtnClicked
 {
     if ([_UsernameTextField.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"輸入你的名字" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    if ([_PasswordTextfield.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"輸入你的密碼" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         return;
     }
     CoreDataModel *CoreData = [[CoreDataModel alloc] init];
-
+    
     
     if ([[CoreData CoreDataSearchUserWithName:_UsernameTextField.text] count] == 0) {
         // TODO: Alert not registed
