@@ -30,6 +30,7 @@
 		10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E271B138F6100E7E89D /* UserNavViewController.m */; };
 		10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E2A1B138FE800E7E89D /* UserInfoView.m */; };
 		10AC4E2D1B1390E700E7E89D /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */; };
+		10E9E4CF1B1552F500D315AE /* BorrowingBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		10AC4E291B138FE800E7E89D /* UserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoView.h; sourceTree = "<group>"; };
 		10AC4E2A1B138FE800E7E89D /* UserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoView.m; sourceTree = "<group>"; };
 		10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoView.xib; sourceTree = "<group>"; };
+		10E9E4CD1B1552F500D315AE /* BorrowingBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorrowingBookViewController.h; sourceTree = "<group>"; };
+		10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorrowingBookViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				10AC4E291B138FE800E7E89D /* UserInfoView.h */,
 				10AC4E2A1B138FE800E7E89D /* UserInfoView.m */,
 				10AC4E2C1B1390E700E7E89D /* UserInfoView.xib */,
+				10E9E4CD1B1552F500D315AE /* BorrowingBookViewController.h */,
+				10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */,
 			);
 			path = LibraryExercise;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				10240AE71B12F76500B937D7 /* AdminViewController.m in Sources */,
 				1015A49D1B12D8D10020FFAF /* AppDelegate.m in Sources */,
 				10240AE41B12F75C00B937D7 /* LoginViewController.m in Sources */,
+				10E9E4CF1B1552F500D315AE /* BorrowingBookViewController.m in Sources */,
 				10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */,
 				10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */,
 				1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */,

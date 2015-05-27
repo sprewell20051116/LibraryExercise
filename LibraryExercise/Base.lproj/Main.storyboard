@@ -98,11 +98,49 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="LogoutBtn" destination="XjE-XX-Vfv" id="uim-A3-M9X"/>
+                        <segue destination="9kc-mH-Mrr" kind="show" identifier="BorrowingBook" id="czX-Ym-NnD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dc-5A-9P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2208" y="-817"/>
+        </scene>
+        <!--Borrowing Book View Controller-->
+        <scene sceneID="t4k-Uw-bw7">
+            <objects>
+                <viewController storyboardIdentifier="BorrowingBookViewController" id="9kc-mH-Mrr" customClass="BorrowingBookViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xrQ-WK-Jjh"/>
+                        <viewControllerLayoutGuide type="bottom" id="e0d-DG-0vv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WBo-xb-R8R">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="書名 | 作者 | 出版社" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLF-9n-mvN">
+                                <rect key="frame" x="16" y="74" width="620" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cna-U1-71X">
+                                <rect key="frame" x="656" y="84" width="96" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <state key="normal" title="SEARCH">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="drG-CW-Wh1">
+                                <rect key="frame" x="16" y="132" width="736" height="872"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mX-nn-1Er" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3035" y="-817"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="M2s-xs-2vo">

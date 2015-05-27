@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserViewController.h"
 #import "UserNavViewController.h"
+#import "BorrowingBookViewController.h"
 
 @interface UserViewController () {
     NSArray *_LoanListData;
@@ -63,14 +64,14 @@
     _UserInfoSubView.CardIDLab.text =  [_UserObj valueForKey:USER_CORE_DATA_CARDID];
     _UserInfoSubView.MobilePhoneLab.text = [_UserObj valueForKey:USER_CORE_DATA_MOBILE];
     _UserInfoSubView.AddressLab.text = [_UserObj valueForKey:USER_CORE_DATA_ADDR];
-    
+    [_UserInfoSubView.BorrowBrn addTarget:self action:@selector(BorrowBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:_UserInfoSubView];
 }
 
 -(void) init_UserLoanTableView
 {
-    _UserLoanTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250, self.view.frame.size.width, self.view.frame.size.height - 250)];
+    _UserLoanTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 250 + 44 + 20, self.view.frame.size.width, self.view.frame.size.height - 250 - 44 - 20)];
     _UserLoanTableView.delegate = self;
     _UserLoanTableView.dataSource = self;
     [_UserLoanTableView setBackgroundColor:[UIColor redColor]];
@@ -86,7 +87,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return [_LoanListData count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,8 +105,11 @@
      if (cell == nil) {
          cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
      }
-     cell.textLabel.text = @"TESTTTT";
- 
+     NSManagedObject *LoanObj = [_LoanListData objectAtIndex:indexPath.row];
+     NSManagedObject *BookObj = [[_CoreData CoreDataSearchWithBookID:[LoanObj valueForKey:@"bookId"]] firstObject];
+     cell.textLabel.text = [BookObj valueForKey:BOOK_DATA_KEY_TITLE];
+     [cell.textLabel setFont:[UIFont systemFontOfSize:30.0f]];
+     
  return cell;
  }
 
@@ -114,15 +118,24 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void) BorrowBtnClicked:(id)sender
+{
+    [self performSegueWithIdentifier:@"BorrowingBook" sender:sender];
 
-/*
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"BorrowingBook"]) {
+        
+        // Get destination view
+        BorrowingBookViewController *vc = [segue destinationViewController];
+        vc.Borrowing_UserID = [_UserObj valueForKey:USER_CORE_DATA_CARDID];
+
+    }
 }
-*/
+
 
 @end
