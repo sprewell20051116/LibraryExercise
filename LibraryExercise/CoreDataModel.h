@@ -45,6 +45,7 @@
 
 -(NSMutableArray*) FetchBookObjInCoreData;
 -(NSMutableArray*) FetchLoanRecord;
+-(NSMutableArray*) FetchBranchObjInCoreData;
 
 
 
@@ -61,6 +62,7 @@
 -(NSArray*) CoreDataSearchWithBookName : (NSString *) BookName;
 -(NSArray*) CoreDataSearchWithAuthorName : (NSString *) AuthorName;
 -(NSArray*) CoreDataSearchinCopiesWithString : (NSString *) SearchString;
+-(NSArray*) CoreDataSearchinCopiesWithBookID : (NSString *) SearchString WithBranchID : (NSString*) BranchID;
 
 
 // not use

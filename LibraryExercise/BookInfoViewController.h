@@ -10,8 +10,9 @@
 #import "UserInfoView.h"
 
 
-@interface BookInfoViewController : UIViewController
+@interface BookInfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) NSString *BookID;
 @property (strong, nonatomic) NSString *UserID;
 @property (strong, nonatomic) UserInfoView *InfoView;
+@property (strong, nonatomic) UITableView  *TableView;
 @end

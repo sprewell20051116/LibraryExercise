@@ -22,6 +22,8 @@
 		10240AF01B12FA3100B937D7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AEF1B12FA3100B937D7 /* User.m */; };
 		10240AF31B12FA6000B937D7 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 10240AF21B12FA6000B937D7 /* Book.m */; };
 		104D9EB31B18066400876963 /* BranchList.json in Resources */ = {isa = PBXBuildFile; fileRef = 104D9EB21B18066400876963 /* BranchList.json */; };
+		1054DB9E1B183D6900F30CE0 /* BookInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1054DB9C1B183D6900F30CE0 /* BookInfoTableViewCell.m */; };
+		1054DB9F1B183D6900F30CE0 /* BookInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1054DB9D1B183D6900F30CE0 /* BookInfoTableViewCell.xib */; };
 		10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AC4E181B13139000E7E89D /* CoreDataModel.m */; };
 		10AC4E1C1B132F1E00E7E89D /* bookList.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1B1B132F1E00E7E89D /* bookList.json */; };
 		10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */ = {isa = PBXBuildFile; fileRef = 10AC4E1D1B13389000E7E89D /* bookLoans.json */; };
@@ -72,6 +74,9 @@
 		10240AF11B12FA6000B937D7 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		10240AF21B12FA6000B937D7 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		104D9EB21B18066400876963 /* BranchList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BranchList.json; sourceTree = "<group>"; };
+		1054DB9B1B183D6900F30CE0 /* BookInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfoTableViewCell.h; sourceTree = "<group>"; };
+		1054DB9C1B183D6900F30CE0 /* BookInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfoTableViewCell.m; sourceTree = "<group>"; };
+		1054DB9D1B183D6900F30CE0 /* BookInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookInfoTableViewCell.xib; sourceTree = "<group>"; };
 		10AC4E171B13139000E7E89D /* CoreDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataModel.h; sourceTree = "<group>"; };
 		10AC4E181B13139000E7E89D /* CoreDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataModel.m; sourceTree = "<group>"; };
 		10AC4E1B1B132F1E00E7E89D /* bookList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookList.json; sourceTree = "<group>"; };
@@ -163,6 +168,9 @@
 				10E9E4CE1B1552F500D315AE /* BorrowingBookViewController.m */,
 				10D8ED311B160DDB0058B726 /* BookInfoViewController.h */,
 				10D8ED321B160DDB0058B726 /* BookInfoViewController.m */,
+				1054DB9B1B183D6900F30CE0 /* BookInfoTableViewCell.h */,
+				1054DB9C1B183D6900F30CE0 /* BookInfoTableViewCell.m */,
+				1054DB9D1B183D6900F30CE0 /* BookInfoTableViewCell.xib */,
 			);
 			path = LibraryExercise;
 			sourceTree = "<group>";
@@ -287,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				100815181B12F28500FA2D7E /* UserList.json in Resources */,
+				1054DB9F1B183D6900F30CE0 /* BookInfoTableViewCell.xib in Resources */,
 				1015A4A61B12D8D10020FFAF /* Main.storyboard in Resources */,
 				10AC4E1E1B13389000E7E89D /* bookLoans.json in Resources */,
 				104D9EB31B18066400876963 /* BranchList.json in Resources */,
@@ -325,6 +334,7 @@
 				10AC4E2B1B138FE800E7E89D /* UserInfoView.m in Sources */,
 				10AC4E281B138F6100E7E89D /* UserNavViewController.m in Sources */,
 				1015A4A01B12D8D10020FFAF /* LibraryExercise.xcdatamodeld in Sources */,
+				1054DB9E1B183D6900F30CE0 /* BookInfoTableViewCell.m in Sources */,
 				10AC4E251B138EED00E7E89D /* UserViewController.m in Sources */,
 				10AC4E191B13139000E7E89D /* CoreDataModel.m in Sources */,
 				1015A49A1B12D8D10020FFAF /* main.m in Sources */,

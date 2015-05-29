@@ -220,6 +220,23 @@
 }
 
 
+#pragma mark - Fetch branch Object
+-(NSMutableArray*) FetchBranchObjInCoreData
+{
+    NSMutableArray *CoreDataArray = [[NSMutableArray alloc] init];
+    NSString *CoreDataEntityName;
+    CoreDataEntityName = CORE_DATA_BRANCH_ENTITY;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:CoreDataEntityName];
+    CoreDataArray = [[_context executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    return CoreDataArray;
+    
+}
+
+
+
+
 #pragma mark - Fetch LoanRocord Object
 -(NSMutableArray*) FetchLoanRecord
 {
@@ -534,7 +551,44 @@
 
 
 #pragma mark - Search branch
+
+#pragma mark - Search branch
 -(NSArray*) CoreDataSearchinCopiesWithString : (NSString *) SearchString
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_COPIES_ENTITY;
+
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_ID ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    //fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@ ", SearchString];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+
+-(NSArray*) CoreDataSearchinCopiesWithBookID : (NSString *) SearchString WithBranchID : (NSString*) BranchID
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
@@ -551,7 +605,7 @@
     
     NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
     
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@", SearchString];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@ && branch = %@", SearchString, BranchID];
     
     [fetchedResultsController.fetchRequest setPredicate:predicate];
     
