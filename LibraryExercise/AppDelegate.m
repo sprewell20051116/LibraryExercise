@@ -19,24 +19,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     _CoreData = [[CoreDataModel alloc] init];
-
-     //Override point for customization after application launch.
+//
+//     //Override point for customization after application launch.
+//    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+//    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
+//    NSUInteger Count = [SeawrchResult count];
+//    NSLog(@"Count = %d", Count);
+//    
+//    for (NSUInteger index = 0; index < Count; index++) {
+//        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
+//    }
+//
+//    NSLog(@"Count %d", [[_CoreData FetchLoanRecord] count]);
+//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
+//    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
     
-
-    CoreDataModel *CoreData = [[CoreDataModel alloc] init];
-    NSArray *SeawrchResult = [CoreData CoreDataSearchWithBookID:@"ISBN 0-321-41442-X"];
-    NSUInteger Count = [SeawrchResult count];
-    NSLog(@"Count = %d", Count);
     
-    for (NSUInteger index = 0; index < Count; index++) {
-        NSLog(@"Branch = %@", [[SeawrchResult objectAtIndex:index] valueForKey:BOOK_DATA_KEY_BRANCH]);
-    }
-
-    NSLog(@"Count %d", [[_CoreData FetchLoanRecord] count]);
-    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"userID"]);
-    NSLog(@"Count %@", [[[_CoreData FetchLoanRecord] firstObject] valueForKey:@"branch"]);
-    
-    //[self PutThingsIntoCoreData];
+    //[self ProcessBranchList];
+    [self PutThingsIntoCoreData];
     return YES;
 }
 
@@ -63,10 +63,11 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
+
+
 #pragma mark - Process data
 -(void) PutUserListInCoreData
 {
-    
 
      NSDictionary *UserListDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"UserList"];
      User *UserObj = [[User alloc] init];
@@ -187,6 +188,16 @@
      */
 }
 
+-(void) ProcessBranchList
+{
+    NSDictionary *BranchDic = [JSONFileManager JSON_ReadJSONFileWithFileName:@"BranchList"];
+    NSLog(@"Dic = %@", BranchDic);
+    for (NSDictionary *Branches in BranchDic) {
+        [_CoreData SaveBranchIntoCoreDataWithObj:Branches];
+    }
+    
+}
+
 -(void) PutThingsIntoCoreData
 {
     
@@ -194,6 +205,7 @@
         [self PutUserListInCoreData];
         [self PutBookListInCoreData];
         [self ProcessAuthorList];
+        [self ProcessBranchList];
         
         dispatch_async( dispatch_get_main_queue(), ^{
             [self SetupBookCopies];

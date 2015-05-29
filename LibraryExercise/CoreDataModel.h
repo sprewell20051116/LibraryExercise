@@ -16,6 +16,12 @@
 #define CORE_DATA_BOOK_ENTITY            @"Books"
 #define CORE_DATA_BOOK_COPIES_ENTITY     @"BooksCopies"
 #define CORE_DATA_LOANRECORD_ENTITY      @"LoanRecord"
+#define CORE_DATA_BRANCH_ENTITY          @"Branch"
+
+// Branch attr
+#define CORE_DATA_BRANCH_ID_ATTR          @"branchId"
+#define CORE_DATA_BRANCH_ADDR_ATTR        @"branchAddr"
+#define CORE_DATA_BRANCH_NAME_ATTR        @"branchName"
 
 @class User;
 @class Book;
@@ -35,6 +41,7 @@
 
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj;
 -(BOOL) SaveBookCopiesIntoCoreDataWithObj : (Book*) CoreDataObj;
+-(BOOL) SaveBranchIntoCoreDataWithObj : (NSDictionary*) Branch;
 
 -(NSMutableArray*) FetchBookObjInCoreData;
 -(NSMutableArray*) FetchLoanRecord;
@@ -53,6 +60,7 @@
 -(NSArray*) CoreDataSearchWithPublisherName : (NSString *) PublisherName;
 -(NSArray*) CoreDataSearchWithBookName : (NSString *) BookName;
 -(NSArray*) CoreDataSearchWithAuthorName : (NSString *) AuthorName;
+-(NSArray*) CoreDataSearchinCopiesWithString : (NSString *) SearchString;
 
 
 // not use

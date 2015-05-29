@@ -52,6 +52,31 @@
 }
 
 
+
+#pragma mark - Save User Object
+-(BOOL) SaveBranchIntoCoreDataWithObj : (NSDictionary*) Branch
+{
+    
+    NSString *CoreDataEntityName = CORE_DATA_BRANCH_ENTITY;
+    NSManagedObject *NewObj = [NSEntityDescription insertNewObjectForEntityForName:CoreDataEntityName inManagedObjectContext:_context];
+    
+    if (Branch == nil) {
+        return NO;
+    }
+    
+    [NewObj setValue:[Branch valueForKey:@"BranchId"] forKey:CORE_DATA_BRANCH_ID_ATTR];
+    [NewObj setValue:[Branch valueForKey:@"Address"] forKey:CORE_DATA_BRANCH_ADDR_ATTR];
+    [NewObj setValue:[Branch valueForKey:@"BranchName"] forKey:CORE_DATA_BRANCH_NAME_ATTR];
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
+
+
 #pragma mark - Save Book Object
 -(BOOL) SaveBookIntoCoreDataWithObj : (Book*) CoreDataObj
 {
@@ -478,7 +503,7 @@
 {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_ENTITY;
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_COPIES_ENTITY;
     
     // NSSortDescriptor tells defines how to sort the fetched results
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_BRANCH ascending:YES];
@@ -492,6 +517,41 @@
     NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
     
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"branch = %@", SearchString];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
+
+#pragma mark - Search branch
+-(NSArray*) CoreDataSearchinCopiesWithString : (NSString *) SearchString
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_COPIES_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_ID ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"id = %@", SearchString];
     
     [fetchedResultsController.fetchRequest setPredicate:predicate];
     

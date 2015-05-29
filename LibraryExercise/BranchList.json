@@ -1,0 +1,32 @@
+[
+  {
+    "BranchId":"TPEL01",
+    "BranchName":"台北巿立圖書館總館",
+    "Address":"台北巿信義路四段101號"
+  },
+  {
+    "BranchId":"TPEL02",
+    "BranchName":"台北巿立圖書館中正分館",
+    "Address":"台北巿中山南路52號"
+  },
+  {
+    "BranchId":"TPEL03",
+    "BranchName":"台北巿立圖書館中山分館",
+    "Address":"台北巿中山北路三段125號"
+  },
+  {
+    "BranchId":"TPEL04",
+    "BranchName":"台北巿立圖書館松山分館",
+    "Address":"台北巿敦化北路220巷15號"
+  },
+  {
+    "BranchId":"TPEL05",
+    "BranchName":"台北巿立圖書館文山分館",
+    "Address":"台北巿試院路5號"
+  },
+  {
+    "BranchId":"TPEL06",
+    "BranchName":"台北巿立圖書館內湖分館",
+    "Address":"台北巿內湖三段127號"
+  }
+]

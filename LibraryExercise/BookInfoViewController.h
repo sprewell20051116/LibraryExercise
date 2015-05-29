@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoView.h"
+
 
 @interface BookInfoViewController : UIViewController
 @property (strong, nonatomic) NSString *BookID;
 @property (strong, nonatomic) NSString *UserID;
+@property (strong, nonatomic) UserInfoView *InfoView;
 @end
