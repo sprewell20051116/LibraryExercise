@@ -14,6 +14,7 @@
     CoreDataModel *_CoreData;
     NSArray       *_BookCopiesArray;
     NSArray       *_BranchArray;
+    NSMutableArray *_GUIDArray; //saving the guid array
 }
 
 @end
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     _CoreData = [[CoreDataModel alloc] init];
     if (_BookID) {
+        _GUIDArray = [[NSMutableArray alloc] initWithArray:@[DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR]];
         _BookCopiesArray = [_CoreData CoreDataSearchinCopiesWithString:_BookID];
         _BranchArray = [_CoreData FetchBranchObjInCoreData];
         NSLog(@"%s -- %d", __PRETTY_FUNCTION__, [_BookCopiesArray count]);
@@ -128,24 +130,66 @@
     
     if (CopyCount > 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定要借書了嗎～？" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+        alert.tag = indexPath.row;
         [alert show];
 
     } else {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書了唷" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alert.tag = 100;
         [alert show];
 
     }
     
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag != 100) {
+        if (buttonIndex == 0) {
+            NSLog(@"TODO save to record and set isInStock as NO");
+            
+            NSDateFormatter *formatter;
+            NSString        *dateString, *DueDateString;
+            
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy/MM/dd"];
+            
+            dateString = [formatter stringFromDate:[NSDate date]];
+            
+            NSDate *DueDate = [NSDate dateWithTimeIntervalSinceNow:60 * 60 * 24 * 30];
+            DueDateString = [formatter stringFromDate:DueDate];
+            NSDictionary *RecordDic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       _UserID, @"CardNo",
+                                       [self GetBranchIdWithRowNumber:alertView.tag], @"BranchId",
+                                       _BookID, @"BookId",
+                                       dateString, @"outDate",
+                                       DueDateString, @"dueDate", nil];
+            NSLog(@"RecordDic = %@", RecordDic);
+            
+            // Get the first in stock book guid of the branch
+            NSString *GuidStr = _GUIDArray[alertView.tag];
+            NSLog(@"GuidStr = %@", GuidStr);
+            [_CoreData UpdateBookCopyIsInStockWithBookGUID:GuidStr byIsInStockFlag:NO andRecordDictionary:RecordDic];
+            [_CoreData SaveLoanRecordIntoCoreDataWithLoanRecord:RecordDic];
+            
+            [self.navigationController  popToRootViewControllerAnimated:YES];
+        }
+    }
+}
+
+
+
 -(NSInteger) GetInStockWithBranchArray : (id)BookBranchCopiesArray
 {
     NSInteger Count = 0;
+    NSInteger Index = 0;
     for (NSDictionary *BookCopies in BookBranchCopiesArray) {
         if ([[BookCopies valueForKey:BOOK_DATA_KEY_IN_STOCK] boolValue]) {
+            [_GUIDArray replaceObjectAtIndex:Index withObject:[BookCopies valueForKey:BOOK_DATA_KEY_GUID]];
             Count++;
         }
+        Index ++;
     }
     return Count;
 }

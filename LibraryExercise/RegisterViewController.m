@@ -68,7 +68,7 @@
         return;
     }
     
-    if ([[CoreData CoreDataSearchUserWithCardID:_UserName.text] count] != 0) {
+    if ([[CoreData CoreDataSearchUserWithCardID:_CardNumber.text] count] != 0) {
         // UserName is used
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ID 已經被用過囉" message:@"再想一個吧" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

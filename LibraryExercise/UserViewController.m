@@ -44,6 +44,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    [super viewDidAppear:animated];
+    _LoanListData = [_CoreData CoreDataSearchLoanListWithUserID:[_UserObj valueForKey:USER_CORE_DATA_CARDID]];
+    if ([_LoanListData count] != 0) {
+        [_UserLoanTableView reloadData];
+    }
+
+}
 
 -(void) init_UserInfoSubView
 {
@@ -92,7 +102,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 60;
 }
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

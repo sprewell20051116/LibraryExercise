@@ -93,9 +93,9 @@
     [NewObj setValue:CoreDataObj.Author forKey:BOOK_DATA_KEY_AUTHOR];
     [NewObj setValue:CoreDataObj.Publisher forKey:BOOK_DATA_KEY_PUBLISHER];
     [NewObj setValue:CoreDataObj.Branch forKey:BOOK_DATA_KEY_BRANCH];
-    //[NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
-    //[NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
-    //[NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
+    [NewObj setValue:CoreDataObj.BorrowerID forKey:BOOK_DATA_KEY_BORROWER];
+    [NewObj setValue:CoreDataObj.OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
+    [NewObj setValue:CoreDataObj.DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
     [NewObj setValue:[NSNumber numberWithBool:CoreDataObj.isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
 
     
@@ -151,6 +151,34 @@
     }
     return YES;
 
+}
+
+-(BOOL) UpdateBookCopyIsInStockWithBookGUID:(NSString*) GUID byIsInStockFlag : (BOOL) isInStock andRecordDictionary : (NSDictionary*) RecordDic
+{
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    //    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    [formatter setDateFormat:@"yyyy/MM/dd"];
+    
+    
+    NSDate *OutDate = [formatter dateFromString:[RecordDic valueForKey:@"outDate"]];
+    NSDate *DueDate = [formatter dateFromString:[RecordDic valueForKey:@"dueDate"]];
+    
+
+    
+    NSManagedObject *BookObj = [[self CoreDataSearchinCopiesWithGUIDString:GUID] firstObject];
+    [BookObj setValue:[NSNumber numberWithBool:isInStock] forKey:BOOK_DATA_KEY_IN_STOCK];
+    [BookObj setValue:OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
+    [BookObj setValue:DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
+    [BookObj setValue:[RecordDic valueForKey:@"CardNo"] forKey:BOOK_DATA_KEY_BORROWER];
+    
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
 }
 
 
@@ -550,7 +578,6 @@
 }
 
 
-#pragma mark - Search branch
 
 #pragma mark - Search branch
 -(NSArray*) CoreDataSearchinCopiesWithString : (NSString *) SearchString
@@ -585,6 +612,41 @@
     return fetchedResultsController.fetchedObjects;
     
 }
+
+
+-(NSArray*) CoreDataSearchinCopiesWithGUIDString : (NSString *) SearchString
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSString *BookCoreDataEntityName = CORE_DATA_BOOK_COPIES_ENTITY;
+    
+    // NSSortDescriptor tells defines how to sort the fetched results
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:BOOK_DATA_KEY_ID ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    //fetchRequest needs to know what entity to fetch
+    NSEntityDescription *entity = [NSEntityDescription entityForName:BookCoreDataEntityName inManagedObjectContext:_context];
+    [fetchRequest setEntity:entity];
+    
+    NSFetchedResultsController  *fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:_context sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"guid = %@ ", SearchString];
+    
+    [fetchedResultsController.fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    if (![fetchedResultsController performFetch:&error])
+    {
+        // Handle error
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1);  // Fail
+    }
+    
+    return fetchedResultsController.fetchedObjects;
+    
+}
+
 
 
 
