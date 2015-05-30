@@ -22,12 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%s name = %@", __PRETTY_FUNCTION__, _UserName);
     // Do any additional setup after loading the view.
     
     _CoreData = [[CoreDataModel alloc] init];
     
-    _UserObj = [[_CoreData CoreDataSearchUserWithName:((UserNavViewController*)(self.navigationController)).UserName] firstObject];
+    _UserObj = [[_CoreData CoreDataSearchUserWithName:_UserName] firstObject];
     _LoanListData = [_CoreData CoreDataSearchLoanListWithUserID:[_UserObj valueForKey:USER_CORE_DATA_CARDID]];
     if ([_LoanListData count] != 0) {
         [self init_UserLoanTableView];
@@ -70,7 +70,7 @@
     [_UserInfoSubView.layer setShadowOpacity:0.5f];
     
     
-    _UserInfoSubView.NameLab.text = ((UserNavViewController*)(self.navigationController)).UserName;
+    _UserInfoSubView.NameLab.text = _UserName;
     _UserInfoSubView.CardIDLab.text =  [_UserObj valueForKey:USER_CORE_DATA_CARDID];
     _UserInfoSubView.MobilePhoneLab.text = [_UserObj valueForKey:USER_CORE_DATA_MOBILE];
     _UserInfoSubView.AddressLab.text = [_UserObj valueForKey:USER_CORE_DATA_ADDR];

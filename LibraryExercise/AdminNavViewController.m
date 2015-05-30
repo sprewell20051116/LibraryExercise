@@ -1,26 +1,21 @@
 //
-//  UserNavViewController.m
+//  AdminNavViewController.m
 //  LibraryExercise
 //
-//  Created by CHIN-KANG CHANG on 5/26/15.
+//  Created by CHIN-KANG CHANG on 5/30/15.
 //  Copyright (c) 2015 iOSTutor. All rights reserved.
 //
 
-#import "UserNavViewController.h"
-#import "UserViewController.h"
-@interface UserNavViewController ()
+#import "AdminNavViewController.h"
+
+@interface AdminNavViewController ()
 
 @end
 
-@implementation UserNavViewController
+@implementation AdminNavViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray *viewControllers = self.viewControllers;
-    NSLog(@"viewcontrollers = %@", viewControllers);
-    UserViewController *rootViewController = [viewControllers firstObject];
-    rootViewController.UserName =_UserName;
-    rootViewController.UserID = _UserID;
     // Do any additional setup after loading the view.
 }
 

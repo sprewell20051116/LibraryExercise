@@ -7,7 +7,7 @@
 //
 
 #import "AdminViewController.h"
-
+#import "AdminNavViewController.h"
 @interface AdminViewController ()
 
 @end
@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_LoginAsUserBtn addTarget:self action:@selector(LoginAsUserBtnClicked) forControlEvents:UIControlEventTouchUpInside];
 
+    [_LoginAsUserBtn addTarget:self action:@selector(LoginAsUserBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_AdminLoginBtn addTarget:self action:@selector(AdminLoginBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
@@ -31,6 +32,26 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)AdminLoginBtnClicked
+{
+    if ([_AdminPasswordTextField.text isEqualToString:@"admin"]) {
+        [self GotoAdminNavView];
+    }
+}
+
+-(void) GotoAdminNavView
+{
+    //CoreDataModel *CoreData = [[CoreDataModel alloc] init];
+    
+    
+    UIStoryboard*  sb = [UIStoryboard storyboardWithName:@"Main"
+                                                  bundle:nil];
+    AdminNavViewController* AddVC = [sb instantiateViewControllerWithIdentifier:@"AdminNavViewController"];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:AddVC animated:YES completion:nil];
+    });
+}
 
 
 /*

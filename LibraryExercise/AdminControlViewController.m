@@ -1,32 +1,33 @@
 //
-//  UserNavViewController.m
+//  AdminControlViewController.m
 //  LibraryExercise
 //
-//  Created by CHIN-KANG CHANG on 5/26/15.
+//  Created by CHIN-KANG CHANG on 5/30/15.
 //  Copyright (c) 2015 iOSTutor. All rights reserved.
 //
 
-#import "UserNavViewController.h"
-#import "UserViewController.h"
-@interface UserNavViewController ()
+#import "AdminControlViewController.h"
+
+@interface AdminControlViewController ()
 
 @end
 
-@implementation UserNavViewController
+@implementation AdminControlViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSArray *viewControllers = self.viewControllers;
-    NSLog(@"viewcontrollers = %@", viewControllers);
-    UserViewController *rootViewController = [viewControllers firstObject];
-    rootViewController.UserName =_UserName;
-    rootViewController.UserID = _UserID;
+    [_LogoutBtn addTarget:self action:@selector(LogoutBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) LogoutBtnClicked
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

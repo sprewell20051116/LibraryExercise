@@ -15,4 +15,6 @@
 @property (strong, nonatomic) CoreDataModel     *CoreData;
 @property (strong, nonatomic) UserInfoView      *UserInfoSubView;
 @property (strong, nonatomic) UITableView       *UserLoanTableView;
+@property (strong, nonatomic) NSString          *UserName;
+@property (strong, nonatomic) NSString          *UserID;
 @end
