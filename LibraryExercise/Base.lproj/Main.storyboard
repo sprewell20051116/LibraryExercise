@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mX-nn-1Er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3131" y="33"/>
+            <point key="canvasLocation" x="3177" y="-817"/>
         </scene>
         <!--Book Info View Controller-->
         <scene sceneID="RdW-wS-qM3">
@@ -421,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYL-hm-fba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3219" y="1533"/>
+            <point key="canvasLocation" x="3125" y="2661"/>
         </scene>
         <!--Delete Book View Controller-->
         <scene sceneID="hZQ-3h-bBq">
@@ -436,10 +436,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="sns-bL-YzB" kind="show" identifier="BookInfo" id="t1j-Vn-rpR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ls-R2-nCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3035" y="2661"/>
+            <point key="canvasLocation" x="3185" y="389"/>
         </scene>
         <!--Add New Book View Controller-->
         <scene sceneID="wl3-L9-eoe">
@@ -630,6 +633,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2tr-P6-Rkv"/>
-        <segue reference="JEB-Mp-W4c"/>
+        <segue reference="M6p-rA-Gqd"/>
+        <segue reference="t1j-Vn-rpR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,6 +30,7 @@
         <attribute name="branchName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LoanRecord" syncable="YES">
+        <attribute name="bookGuid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bookId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="branch" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -52,7 +53,7 @@
         <element name="Books" positionX="-54" positionY="9" width="128" height="195"/>
         <element name="BooksCopies" positionX="-45" positionY="72" width="128" height="195"/>
         <element name="Branch" positionX="-45" positionY="99" width="128" height="90"/>
-        <element name="LoanRecord" positionX="-54" positionY="72" width="128" height="120"/>
+        <element name="LoanRecord" positionX="-54" positionY="72" width="128" height="135"/>
         <element name="Users" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

@@ -176,6 +176,7 @@
         vc.BookID = [sender valueForKey:BOOK_DATA_KEY_ID];
         vc.UserID = _Borrowing_UserID;
         vc.MoveBranchMode = _MoveBranchMode;
+        vc.ReadOnlyMode = NO;
     }
 }
 

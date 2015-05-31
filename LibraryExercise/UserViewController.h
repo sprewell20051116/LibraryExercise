@@ -11,6 +11,9 @@
 #import "CoreDataModel.h"
 
 @interface UserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+-(void) reloadList;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *LogoutBtn;
 @property (strong, nonatomic) CoreDataModel     *CoreData;
 @property (strong, nonatomic) UserInfoView      *UserInfoSubView;

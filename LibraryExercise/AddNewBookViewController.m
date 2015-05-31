@@ -42,11 +42,11 @@
     [_CoreData SaveBookIntoCoreDataWithObj:BookObj];
     
     [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_1 forCopies:[_Branch1TextField.text integerValue]];
-    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_2 forCopies:[_Branch1TextField.text integerValue]];
-    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_3 forCopies:[_Branch1TextField.text integerValue]];
-    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_4 forCopies:[_Branch1TextField.text integerValue]];
-    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_5 forCopies:[_Branch1TextField.text integerValue]];
-    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_6 forCopies:[_Branch1TextField.text integerValue]];
+    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_2 forCopies:[_Branch2TextField.text integerValue]];
+    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_3 forCopies:[_Branch3TextField.text integerValue]];
+    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_4 forCopies:[_Branch4TextField.text integerValue]];
+    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_5 forCopies:[_Branch5TextField.text integerValue]];
+    [self SaveBookCopyWithBookObj:BookObj inBranch:BRANCH_ID_6 forCopies:[_Branch6TextField.text integerValue]];
     
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -56,6 +56,7 @@
 {
     Book.Branch = BranchName;
     for (int count = 0; count < Copies; count++) {
+        Book.GUID = [NSUUID UUID].UUIDString;
         [_CoreData SaveBookCopiesIntoCoreDataWithObj:Book];
     }
 }

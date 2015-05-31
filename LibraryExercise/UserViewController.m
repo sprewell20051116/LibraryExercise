@@ -49,10 +49,17 @@
     NSLog(@"%s",__PRETTY_FUNCTION__);
     [super viewDidAppear:animated];
     _LoanListData = [_CoreData CoreDataSearchLoanListWithUserID:[_UserObj valueForKey:USER_CORE_DATA_CARDID]];
-    if ([_LoanListData count] != 0) {
-        [_UserLoanTableView reloadData];
-    }
+    //if ([_LoanListData count] != 0) {
+    [_UserLoanTableView reloadData];
+    //}
 
+}
+
+-(void) reloadList
+{
+    _LoanListData = [_CoreData CoreDataSearchLoanListWithUserID:[_UserObj valueForKey:USER_CORE_DATA_CARDID]];
+    //if ([_LoanListData count] != 0) {
+    [_UserLoanTableView reloadData];
 }
 
 -(void) init_UserInfoSubView
@@ -110,19 +117,92 @@
      
      static NSString *CellIdentifier = @"Cell";
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-     
+     BOOL NotHandle = YES;
      // Configure the cell...
      if (cell == nil) {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
      }
      NSManagedObject *LoanObj = [_LoanListData objectAtIndex:indexPath.row];
-     NSManagedObject *BookObj = [[_CoreData CoreDataSearchWithBookID:[LoanObj valueForKey:@"bookId"]] firstObject];
-     cell.textLabel.text = [BookObj valueForKey:BOOK_DATA_KEY_TITLE];
-     cell.detailTextLabel.text = [LoanObj valueForKey:@"branch"];
+     if ([[LoanObj valueForKey:@"bookGuid"] isEqualToString:DEFAULT_STR]) {
+         // not handle, because this is already given back
+         
+     } else {
+         NotHandle = NO;
+     }
+     
+     
+     NSManagedObject *BookCopyObj;
+     if (NotHandle) {
+         BookCopyObj = [[_CoreData CoreDataSearchWithBookID:[LoanObj valueForKey:@"bookId"]] firstObject];
+
+     } else {
+         BookCopyObj = [[_CoreData CoreDataSearchinCopiesWithGUIDString:[LoanObj valueForKey:@"bookGuid"]] firstObject];
+     }
+     
+     cell.textLabel.text = [BookCopyObj valueForKey:BOOK_DATA_KEY_TITLE];
+
+     BOOL isInStock = [[BookCopyObj valueForKey:BOOK_DATA_KEY_IN_STOCK] boolValue];
+     if (isInStock) {
+         
+         NSString *SubtitleStr = [NSString stringWithFormat:@"分館 : %@ | 已還書", [LoanObj valueForKey:@"branch"]];
+         cell.detailTextLabel.text = SubtitleStr;
+         [cell.textLabel setTextColor:[UIColor blackColor]];
+
+         
+     } else {
+         
+         [cell.textLabel setTextColor:[UIColor redColor]];
+         NSDateFormatter *formatter;
+         NSString        *DueDateString;
+         NSDate *DueDate = [BookCopyObj valueForKey:BOOK_DATA_KEY_DUE_DATE];
+         formatter = [[NSDateFormatter alloc] init];
+         [formatter setDateFormat:@"yyyy/MM/dd"];
+         
+         DueDateString = [formatter stringFromDate:DueDate];
+         
+         NSString *SubtitleStr = [NSString stringWithFormat:@"分館 : %@ | 到期日 : %@", [LoanObj valueForKey:@"branch"], DueDateString];
+         cell.detailTextLabel.text = SubtitleStr;
+
+     }
      [cell.textLabel setFont:[UIFont systemFontOfSize:30.0f]];
      
  return cell;
  }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSManagedObject *LoanObj = [_LoanListData objectAtIndex:indexPath.row];
+    NSManagedObject *BookCopyObj;
+    
+    
+    if ([[LoanObj valueForKey:@"bookGuid"] isEqualToString:DEFAULT_STR]) {
+        // not handle, because this is already given back
+        
+    } else {
+        BookCopyObj = [[_CoreData CoreDataSearchinCopiesWithGUIDString:[LoanObj valueForKey:@"bookGuid"]] firstObject];
+        if ([[BookCopyObj valueForKey:BOOK_DATA_KEY_IN_STOCK] boolValue]) {
+            
+            // not handle
+        } else {
+            
+            NSDictionary *RecordDic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [LoanObj valueForKey:@"userID"], @"CardNo",
+                                       [LoanObj valueForKey:@"branch"], @"BranchId",
+                                       [LoanObj valueForKey:@"bookId"], @"BookId",
+                                       [LoanObj valueForKey:@"outDate"], @"outDate",
+                                       [LoanObj valueForKey:@"dueDate"], @"dueDate",
+                                       [LoanObj valueForKey:@"bookGuid"], @"bookGuid" ,nil];
+            NSLog(@"RecordDic = %@", RecordDic);
+            
+            [_CoreData UpdateBookCopyIsInStockWithBookGUID:[LoanObj valueForKey:@"bookGuid"] byIsInStockFlag:YES andRecordDictionary:RecordDic];
+            [_UserLoanTableView reloadData];
+        }
+        
+    }
+    
+
+}
 
 -(void) LogoutBtnClicked
 {

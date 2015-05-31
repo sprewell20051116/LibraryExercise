@@ -9,7 +9,7 @@
 #import "BookInfoViewController.h"
 #import "CoreDataModel.h"
 #import "BookInfoTableViewCell.h"
-
+#import "UserViewController.h"
 @interface BookInfoViewController () {
     CoreDataModel *_CoreData;
     NSArray       *_BookCopiesArray;
@@ -32,8 +32,12 @@
         self.title = @"書籍資料";
     }
     
+    if (_ReadOnlyMode) {
+        self.title = @"檢視書籍資料";
+    }
+    
     if (_BookID) {
-        _GUIDArray = [[NSMutableArray alloc] initWithArray:@[DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR]];
+        _GUIDArray = [[NSMutableArray alloc] initWithArray:@[DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR]];
         _BookCopiesArray = [_CoreData CoreDataSearchinCopiesWithString:_BookID];
         _BranchArray = [_CoreData FetchBranchObjInCoreData];
         NSLog(@"%s -- %d", __PRETTY_FUNCTION__, [_BookCopiesArray count]);
@@ -126,7 +130,7 @@
     cell.BranchNameLab.text = [_BranchArray[indexPath.row] valueForKey:CORE_DATA_BRANCH_NAME_ATTR];
     cell.AddrLab.text = [_BranchArray[indexPath.row] valueForKey:CORE_DATA_BRANCH_ADDR_ATTR];
 //    cell.CopiesLab.text = ;
-    NSInteger CopyCount = [self GetInStockWithBranchArray:[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]]];
+    NSInteger CopyCount = [self GetInStockWithBranchArray:[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]] forBranch:indexPath.row];
     cell.CopiesLab.text = [NSString stringWithFormat:@"%02d", CopyCount];
     
     return cell;
@@ -134,47 +138,51 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger CopyCount = [self GetInStockWithBranchArray:[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]]];
+    NSInteger CopyCount = [self GetInStockWithBranchArray:[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]] forBranch:indexPath.row];
 
-    
-    if (_MoveBranchMode) {
-        
-        if (CopyCount > 0) {
-            
-            //show the app menu
-            [[[UIActionSheet alloc] initWithTitle:@"搬動一本書至哪個分館"
-                                         delegate:self
-                                cancelButtonTitle:@"Cancel"
-                           destructiveButtonTitle:nil
-                                otherButtonTitles:@"台北巿立圖書館總館", @"台北巿立圖書館中正分館", @"台北巿立圖書館中山分館", @"台北巿立圖書館松山分館", @"台北巿立圖書館文山分館", @"台北巿立圖書館內湖分館", nil]
-             showInView:self.view];
-            _MoveBranchBookObj = [[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]] firstObject];
-            
-        } else {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書可以搬動喔～" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alert.tag = 100;
-            [alert show];
-            
-        }
-        
+    if (_ReadOnlyMode) {
         
     } else {
-        
-        if (CopyCount > 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定要借書了嗎～？" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
-            alert.tag = indexPath.row;
-            [alert show];
+        if (_MoveBranchMode) {
+            
+            if (CopyCount > 0) {
+                
+                //show the app menu
+                [[[UIActionSheet alloc] initWithTitle:@"搬動一本書至哪個分館"
+                                             delegate:self
+                                    cancelButtonTitle:@"Cancel"
+                               destructiveButtonTitle:nil
+                                    otherButtonTitles:@"台北巿立圖書館總館", @"台北巿立圖書館中正分館", @"台北巿立圖書館中山分館", @"台北巿立圖書館松山分館", @"台北巿立圖書館文山分館", @"台北巿立圖書館內湖分館", nil]
+                 showInView:self.view];
+                _MoveBranchBookObj = [[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]] firstObject];
+                
+            } else {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書可以搬動喔～" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alert.tag = 100;
+                [alert show];
+                
+            }
+            
             
         } else {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書了唷" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alert.tag = 100;
-            [alert show];
+            if (CopyCount > 0) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定要借書了嗎～？" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+                alert.tag = indexPath.row;
+                [alert show];
+                
+            } else {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書了唷" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                alert.tag = 100;
+                [alert show];
+                
+            }
             
         }
-        
     }
+    
     
 }
 
@@ -195,7 +203,8 @@
             
             NSDateFormatter *formatter;
             NSString        *dateString, *DueDateString;
-            
+            NSString *GuidStr = _GUIDArray[alertView.tag];
+
             formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:@"yyyy/MM/dd"];
             
@@ -208,33 +217,37 @@
                                        [self GetBranchIdWithRowNumber:alertView.tag], @"BranchId",
                                        _BookID, @"BookId",
                                        dateString, @"outDate",
-                                       DueDateString, @"dueDate", nil];
+                                       DueDateString, @"dueDate",
+                                       GuidStr, @"bookGuid" ,nil];
             NSLog(@"RecordDic = %@", RecordDic);
             
             // Get the first in stock book guid of the branch
-            NSString *GuidStr = _GUIDArray[alertView.tag];
-            NSLog(@"GuidStr = %@", GuidStr);
             [_CoreData UpdateBookCopyIsInStockWithBookGUID:GuidStr byIsInStockFlag:NO andRecordDictionary:RecordDic];
             [_CoreData SaveLoanRecordIntoCoreDataWithLoanRecord:RecordDic];
             
-            [self.navigationController  popToRootViewControllerAnimated:YES];
+            UserViewController *VC = (UserViewController *)[self.navigationController.viewControllers objectAtIndex:0];
+            [VC reloadList];
+            [self.navigationController  popViewControllerAnimated:YES];
         }
     }
 }
 
 
 
--(NSInteger) GetInStockWithBranchArray : (id)BookBranchCopiesArray
+-(NSInteger) GetInStockWithBranchArray : (id)BookBranchCopiesArray forBranch : (NSUInteger) Branch
 {
     NSInteger Count = 0;
-    NSInteger Index = 0;
-    for (NSDictionary *BookCopies in BookBranchCopiesArray) {
+    
+    for (NSUInteger BookCopyIndex; BookCopyIndex < [BookBranchCopiesArray count]; BookCopyIndex++) {
+        
+        NSManagedObject *BookCopies = BookBranchCopiesArray[BookCopyIndex];
         if ([[BookCopies valueForKey:BOOK_DATA_KEY_IN_STOCK] boolValue]) {
-            [_GUIDArray replaceObjectAtIndex:Index withObject:[BookCopies valueForKey:BOOK_DATA_KEY_GUID]];
+            [_GUIDArray replaceObjectAtIndex:Branch withObject:[BookCopies valueForKey:BOOK_DATA_KEY_GUID]];
             Count++;
         }
-        Index ++;
     }
+    
+    
     return Count;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "DeleteBookViewController.h"
-
+#import "BookInfoViewController.h"
 @interface DeleteBookViewController () {
     NSArray *_UserListArray;
 
@@ -84,6 +84,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定刪除嗎" message:@"此動作將會刪除所有分館的 copy" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"OK", nil];
         alert.tag = indexPath.row;
         [alert show];
+    } else {
+        [self performSegueWithIdentifier:@"BookInfo" sender:[_UserListArray[indexPath.row] valueForKey:BOOK_DATA_KEY_ID]];
     }
 }
 
@@ -97,14 +99,20 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+    if ([[segue identifier] isEqualToString:@"BookInfo"]) {
+        
+        // Get destination view
+        BookInfoViewController *vc = [segue destinationViewController];
+        //vc.Borrowing_UserID = [_UserObj valueForKey:USER_CORE_DATA_CARDID];
+        vc.MoveBranchMode = NO;
+        vc.ReadOnlyMode = YES;
+        vc.BookID = sender;
+    }}
+
 
 @end

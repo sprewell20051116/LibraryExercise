@@ -12,7 +12,7 @@
 
 @interface BookInfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 @property BOOL MoveBranchMode;
-
+@property BOOL ReadOnlyMode;
 @property (strong, nonatomic) NSString *BookID;
 @property (strong, nonatomic) NSString *UserID;
 @property (strong, nonatomic) UserInfoView *InfoView;

@@ -174,7 +174,7 @@
     [BookObj setValue:OutDate forKey:BOOK_DATA_KEY_OUT_DATE];
     [BookObj setValue:DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
     [BookObj setValue:[RecordDic valueForKey:@"CardNo"] forKey:BOOK_DATA_KEY_BORROWER];
-    
+
     NSError *error = nil;
     if (![_context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
@@ -219,6 +219,13 @@
     [NewObj setValue:[LoanRecord valueForKey:@"BranchId"] forKey:@"branch"];
     [NewObj setValue:DueDate forKey:@"dueDate"];
     [NewObj setValue:OutDate forKey:@"outDate"];
+    
+    if ([LoanRecord valueForKey:@"bookGuid"]) {
+        [NewObj setValue:[LoanRecord valueForKey:@"bookGuid"] forKey:@"bookGuid"];
+    } else {
+        [NewObj setValue:DEFAULT_STR forKey:@"bookGuid"];
+    }
+    
     
     
     NSError *error = nil;
