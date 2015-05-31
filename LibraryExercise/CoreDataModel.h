@@ -66,6 +66,7 @@
 -(NSArray*) CoreDataSearchinCopiesWithGUIDString : (NSString *) SearchString;
 
 -(BOOL) UpdateBookCopyIsInStockWithBookGUID:(NSString*) GUID byIsInStockFlag : (BOOL) isInStock andRecordDictionary : (NSDictionary*) RecordDic;
+-(BOOL) UpdateBookCopyWithBookObj : (NSManagedObject*) BookObj forNewBranch : (NSString*) BranchID;
 
 // not use
 - (BOOL) LoanBookWithIDStr:(NSString*) BookID

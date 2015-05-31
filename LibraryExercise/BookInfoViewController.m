@@ -15,6 +15,7 @@
     NSArray       *_BookCopiesArray;
     NSArray       *_BranchArray;
     NSMutableArray *_GUIDArray; //saving the guid array
+    NSManagedObject *_MoveBranchBookObj;
 }
 
 @end
@@ -24,6 +25,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _CoreData = [[CoreDataModel alloc] init];
+    
+    if (_MoveBranchMode) {
+        self.title = @"點擊分館以搬動書籍";
+    } else {
+        self.title = @"書籍資料";
+    }
+    
     if (_BookID) {
         _GUIDArray = [[NSMutableArray alloc] initWithArray:@[DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR, DEFAULT_STR]];
         _BookCopiesArray = [_CoreData CoreDataSearchinCopiesWithString:_BookID];
@@ -127,21 +135,57 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger CopyCount = [self GetInStockWithBranchArray:[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]]];
-    
-    if (CopyCount > 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定要借書了嗎～？" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
-        alert.tag = indexPath.row;
-        [alert show];
 
+    
+    if (_MoveBranchMode) {
+        
+        if (CopyCount > 0) {
+            
+            //show the app menu
+            [[[UIActionSheet alloc] initWithTitle:@"搬動一本書至哪個分館"
+                                         delegate:self
+                                cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:nil
+                                otherButtonTitles:@"台北巿立圖書館總館", @"台北巿立圖書館中正分館", @"台北巿立圖書館中山分館", @"台北巿立圖書館松山分館", @"台北巿立圖書館文山分館", @"台北巿立圖書館內湖分館", nil]
+             showInView:self.view];
+            _MoveBranchBookObj = [[_CoreData CoreDataSearchinCopiesWithBookID:_BookID WithBranchID:[self GetBranchIdWithRowNumber:indexPath.row]] firstObject];
+            
+        } else {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書可以搬動喔～" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.tag = 100;
+            [alert show];
+            
+        }
+        
+        
     } else {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書了唷" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        alert.tag = 100;
-        [alert show];
-
+        if (CopyCount > 0) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定要借書了嗎～？" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+            alert.tag = indexPath.row;
+            [alert show];
+            
+        } else {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"沒有書了唷" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alert.tag = 100;
+            [alert show];
+            
+        }
+        
     }
     
 }
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"%s, index = %d", __PRETTY_FUNCTION__, buttonIndex);
+    [_CoreData UpdateBookCopyWithBookObj:_MoveBranchBookObj forNewBranch:[self GetBranchIdWithRowNumber:buttonIndex]];
+    [_TableView reloadData];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

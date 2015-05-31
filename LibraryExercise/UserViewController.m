@@ -144,7 +144,7 @@
         // Get destination view
         BorrowingBookViewController *vc = [segue destinationViewController];
         vc.Borrowing_UserID = [_UserObj valueForKey:USER_CORE_DATA_CARDID];
-
+        vc.MoveBranchMode = NO;
     }
 }
 

@@ -7,7 +7,8 @@
 //
 
 #import "AdminControlViewController.h"
-
+#import "DeleteBookViewController.h"
+#import "BorrowingBookViewController.h"
 @interface AdminControlViewController ()
 
 @end
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_LogoutBtn addTarget:self action:@selector(LogoutBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [_BookListBtn addTarget:self action:@selector(BookListBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view.
 }
 
@@ -30,14 +32,33 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
+-(void) BookListBtnClicked
+{
+    [self performSegueWithIdentifier:@"BookList" sender:nil];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"BookList"]) {
+        // Get destination view
+        DeleteBookViewController *vc = [segue destinationViewController];
+        
+        vc.DeleteMode = NO;
+    } else if ([[segue identifier] isEqualToString:@"DeleteBook"]) {
+        // Get destination view
+        DeleteBookViewController *vc = [segue destinationViewController];
+        
+        vc.DeleteMode = YES;
+    }  else if ([[segue identifier] isEqualToString:@"MoveBranch"]) {
+        // Get destination view
+        BorrowingBookViewController *vc = [segue destinationViewController];
+        vc.MoveBranchMode = YES;
+    }
+
 }
-*/
+
 
 @end

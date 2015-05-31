@@ -153,6 +153,8 @@
 
 }
 
+
+// Loan a book with guid
 -(BOOL) UpdateBookCopyIsInStockWithBookGUID:(NSString*) GUID byIsInStockFlag : (BOOL) isInStock andRecordDictionary : (NSDictionary*) RecordDic
 {
     
@@ -173,6 +175,17 @@
     [BookObj setValue:DueDate forKey:BOOK_DATA_KEY_DUE_DATE];
     [BookObj setValue:[RecordDic valueForKey:@"CardNo"] forKey:BOOK_DATA_KEY_BORROWER];
     
+    NSError *error = nil;
+    if (![_context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL) UpdateBookCopyWithBookObj : (NSManagedObject*) BookObj forNewBranch : (NSString*) BranchID
+{
+    [BookObj setValue:BranchID forKey:BOOK_DATA_KEY_BRANCH];
     NSError *error = nil;
     if (![_context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);

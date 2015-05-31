@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataModel.h"
 @interface BorrowingBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property BOOL MoveBranchMode;
 @property (strong, nonatomic) IBOutlet UITextField *SearchTextField;
 @property (strong, nonatomic) IBOutlet UIButton *SearchBtn;
 @property (strong, nonatomic) CoreDataModel *CoreData;

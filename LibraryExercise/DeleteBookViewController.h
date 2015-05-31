@@ -12,5 +12,5 @@
 @interface DeleteBookViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) UITableView *TableView;
 @property (strong, nonatomic) CoreDataModel *CoreData;
-
+@property BOOL DeleteMode;
 @end

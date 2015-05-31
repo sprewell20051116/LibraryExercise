@@ -20,7 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    self.title = @"點擊來刪除書";
+    if (_DeleteMode) {
+        self.title = @"點擊來刪除書";
+    } else {
+        self.title = @"書籍清單";
+    }
+
     _CoreData = [[CoreDataModel alloc] init];
     _UserListArray = [_CoreData FetchBookObjInCoreData];
     
@@ -68,22 +73,18 @@
     }
     
     cell.textLabel.text = [_UserListArray[indexPath.row] valueForKey:BOOK_DATA_KEY_TITLE];
-    
-    /*
-     NSManagedObject *LoanObj = [_LoanListData objectAtIndex:indexPath.row];
-     NSManagedObject *BookObj = [[_CoreData CoreDataSearchWithBookID:[LoanObj valueForKey:@"bookId"]] firstObject];
-     cell.textLabel.text = [BookObj valueForKey:BOOK_DATA_KEY_TITLE];
-     cell.detailTextLabel.text = [LoanObj valueForKey:@"branch"];
-     [cell.textLabel setFont:[UIFont systemFontOfSize:30.0f]];
-     */
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定刪除嗎" message:@"此動作將會刪除所有分館的 copy" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"OK", nil];
-    alert.tag = indexPath.row;
-    [alert show];
+    if (_DeleteMode) {
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確定刪除嗎" message:@"此動作將會刪除所有分館的 copy" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"OK", nil];
+        alert.tag = indexPath.row;
+        [alert show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

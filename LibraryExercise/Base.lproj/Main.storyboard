@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mX-nn-1Er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3035" y="-817"/>
+            <point key="canvasLocation" x="3131" y="33"/>
         </scene>
         <!--Book Info View Controller-->
         <scene sceneID="RdW-wS-qM3">
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of9-IV-59a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3874" y="-817"/>
+            <point key="canvasLocation" x="4108" y="-817"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="M2s-xs-2vo">
@@ -357,6 +357,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="9kc-mH-Mrr" kind="show" identifier="MoveBranch" id="2tr-P6-Rkv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkX-yz-lS4">
                                 <rect key="frame" x="391" y="288" width="361" height="132"/>
@@ -367,7 +370,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="W3m-Aj-Ozp" kind="show" id="JEB-Mp-W4c"/>
+                                    <segue destination="W3m-Aj-Ozp" kind="show" identifier="DeleteBook" id="JEB-Mp-W4c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pr-2L-kcV">
@@ -377,13 +380,24 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3U-lK-4NK">
+                                <rect key="frame" x="391" y="121" width="361" height="132"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <state key="normal" title="書籍清單">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3bu-WT-jI7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="BookListBtn" destination="E3U-lK-4NK" id="lhw-IC-krv"/>
                         <outlet property="LogoutBtn" destination="1pr-2L-kcV" id="KZX-ig-Bxr"/>
+                        <segue destination="W3m-Aj-Ozp" kind="show" identifier="BookList" id="M6p-rA-Gqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLi-4w-8ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -407,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYL-hm-fba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048" y="389"/>
+            <point key="canvasLocation" x="3219" y="1533"/>
         </scene>
         <!--Delete Book View Controller-->
         <scene sceneID="hZQ-3h-bBq">
@@ -593,7 +607,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7N-mc-sl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048" y="1548"/>
+            <point key="canvasLocation" x="2241" y="2661"/>
         </scene>
         <!--Admin Nav View Controller-->
         <scene sceneID="Frs-gA-N7V">
@@ -614,4 +628,8 @@
             <point key="canvasLocation" x="1444" y="177"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2tr-P6-Rkv"/>
+        <segue reference="JEB-Mp-W4c"/>
+    </inferredMetricsTieBreakers>
 </document>

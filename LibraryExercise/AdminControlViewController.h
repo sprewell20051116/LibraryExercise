@@ -10,5 +10,6 @@
 
 @interface AdminControlViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *LogoutBtn;
+@property (strong, nonatomic) IBOutlet UIButton *BookListBtn;
 
 @end
